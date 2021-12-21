@@ -1,7 +1,7 @@
 [![Windows](https://img.shields.io/badge/Platform-Windows-lightgray.svg)](https://www.microsoft.com/en-us/windows/)
 [![PowerShell](https://img.shields.io/badge/PowerShell-5-blue.svg)](https://microsoft.com/PowerShell/)
-[![Vault](https://img.shields.io/badge/Autodesk%20Vault-2021-yellow.svg)](https://www.autodesk.com/products/vault/)
-[![powerJobs](https://img.shields.io/badge/coolOrange%20powerJobs-21-orange.svg)](https://www.coolorange.com/en-eu/enhance.html#powerJobs)
+[![Vault](https://img.shields.io/badge/Autodesk%20Vault-2022-yellow.svg)](https://www.autodesk.com/products/vault/)
+[![powerJobs](https://img.shields.io/badge/coolOrange%20powerJobs-22-orange.svg)](https://www.coolorange.com/en-eu/enhance.html#powerJobs)
 
 # powerjobs-extensions
 custom application extension for powerJobs
