@@ -1,9 +1,9 @@
-﻿using Microsoft.Office.Interop.Word;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
+using Microsoft.Office.Interop.Word;
 using powerJobs.Common.Applications;
 
-namespace MsWordApplication
+namespace MsOfficeApplication.Word
 {
     public class MsWordApplicationDocument : DocumentBase
     {
@@ -13,7 +13,7 @@ namespace MsWordApplication
             : base(application, openSettings)
         {
             //Do something with the OpenSettings like cache information and on Close_Internal(), close a connection
-            Documents documents = (application as Application).Word.Documents;
+            Documents documents = (application as MsWordApplication)?.Word.Documents;
             var fullName = openSettings.File.FullName;
             _document = documents.Open(fullName);
         }
