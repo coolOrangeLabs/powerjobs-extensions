@@ -12,15 +12,15 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <ProductVersion>3.5</ProductVersion>
-    <ProjectGuid>{F3FD3339-2987-46F2-834C-9A2CFDA89944}</ProjectGuid>
+    <ProjectGuid>{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>powerJobs.AcadElectricalPlugin.Setup_$(Major).$(Minor).$(Revision).$(Build)_$(Platform)</OutputName>
+	  <OutputName>powerJobs.MsOfficePlugin.Setup_$(Major).$(Minor).$(Revision).$(Build)_$(Platform)</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
-    <DefineConstants>Debug;HarvestPowerJobsPlugin=..\..\Files\powerJobs;</DefineConstants>
+    <DefineConstants>Debug;HarvestPowerJobsPlugin=..\..\Source\powerJobs;</DefineConstants>
     <CompilerAdditionalOptions>
 			-dMajor=$(Major)
 			-dMinor=$(Minor)
@@ -38,7 +38,7 @@
 			-dMinor=$(Minor)
 			-dBuild=$(Build)
 			-dRevision=$(Revision)</CompilerAdditionalOptions>
-    <DefineConstants>HarvestPowerJobsPlugin=..\..\Files\powerJobs;</DefineConstants>
+    <DefineConstants>HarvestPowerJobsPlugin=..\..\Source\powerJobs;</DefineConstants>
     <WixVariables>
     </WixVariables>
     <SuppressIces>ICE30</SuppressIces>
@@ -83,7 +83,7 @@
     <PreBuildEvent>cd  "$(ProjectDir)"
 
 ::  Heat for powerJobs.AcadElectricalPlugin.Setup files
-"%25WIX%25\bin\Heat.exe" dir ..\..\Files\powerJobs -cg HeatGenerated_PowerJobsPlugin -dr DIR_POWERJOBS_PLUGIN -sreg -srd -var var.HarvestPowerJobsPlugin -gg -sfrag -t ../Resources/Transform_HeatDir.xslt -out ./HeatGenerated/HeatGeneratedFileList_PowerJobsPlugin.wxs
+"%25WIX%25\bin\Heat.exe" dir ..\..\Source\powerJobs -cg HeatGenerated_PowerJobsPlugin -dr DIR_POWERJOBS_PLUGIN -sreg -srd -var var.HarvestPowerJobsPlugin -gg -sfrag -t ../Resources/Transform_HeatDir.xslt -out ./HeatGenerated/HeatGeneratedFileList_PowerJobsPlugin.wxs
 	</PreBuildEvent>
   </PropertyGroup>
 </Project>

@@ -1,4 +1,4 @@
 Add-Type -Path "$($Env:POWERJOBS_MODULESDIR)\MsOfficeSupport\MsOfficeApplication.dll"
-Register-Application ([MsOfficeApplication.MsWordApplication])
-Register-Application ([MsOfficeApplication.MsExcelApplication])
-Register-Application ([MsOfficeApplication.MsPowerPointApplication])
+Register-Application ([MsOfficeApplication.Word.MsWordApplication])
+Register-Application ([MsOfficeApplication.Excel.MsExcelApplication])
+Register-Application ([MsOfficeApplication.PowerPoint.MsPowerPointApplication])

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerJobs.MsOfficePlugin.Setup", "powerJobs.AcadElectricalPlugin.Setup\powerJobs.MsOfficePlugin.Setup.wixproj", "{F3FD3339-2987-46F2-834C-9A2CFDA89944}"
+Project("{C3DA46A1-F979-41BA-84D5-CEEDC0F63914}") = "powerJobs.MsOfficePlugin.Setup", "powerJobs.MsOfficePlugin.Setup\powerJobs.MsOfficePlugin.Setup.wixproj", "{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +15,20 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Debug|x64.ActiveCfg = Debug|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Debug|x64.Build.0 = Debug|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Debug|x86.ActiveCfg = Debug|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Release|Any CPU.ActiveCfg = Release|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Release|Any CPU.Build.0 = Release|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Release|x64.ActiveCfg = Release|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Release|x64.Build.0 = Release|x64
-		{F3FD3339-2987-46F2-834C-9A2CFDA89944}.Release|x86.ActiveCfg = Release|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Debug|x64.ActiveCfg = Debug|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Debug|x64.Build.0 = Debug|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Debug|x86.ActiveCfg = Debug|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|Any CPU.ActiveCfg = Release|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|Any CPU.Build.0 = Release|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|x64.ActiveCfg = Release|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|x64.Build.0 = Release|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {{1687FBE7-8A5B-40E3-903D-9B81DE4D43C7}}
+		SolutionGuid = {{F67AFD74-26E6-4A2F-9EDC-F3B462EC1585}}
 	EndGlobalSection
 EndGlobal
