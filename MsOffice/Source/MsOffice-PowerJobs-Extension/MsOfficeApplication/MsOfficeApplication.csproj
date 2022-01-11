@@ -24,6 +24,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>$(windir)\System32\WindowsPowerShell\v1.0\powershell.exe</StartProgram>
     <StartArguments>-noexit -command "Import-Module powerJobs"</StartArguments>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

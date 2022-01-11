@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{0F105C9C-952D-4D98-B65F-1393926B23C5}") = "powerJobs.AcadElectricalPlugin.Setup", "powerJobs.AcadElectricalPlugin.Setup\powerJobs.AcadElectricalPlugin.Setup.wixproj", "{459B204C-23BF-4639-9B8F-6B15C86FA9B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Debug|x64.ActiveCfg = Debug|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Debug|x64.Build.0 = Debug|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Debug|x86.ActiveCfg = Debug|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Release|Any CPU.ActiveCfg = Release|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Release|Any CPU.Build.0 = Release|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Release|x64.ActiveCfg = Release|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Release|x64.Build.0 = Release|x64
+		{459B204C-23BF-4639-9B8F-6B15C86FA9B7}.Release|x86.ActiveCfg = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {{1687FBE7-8A5B-40E3-903D-9B81DE4D43C7}}
+	EndGlobalSection
+EndGlobal

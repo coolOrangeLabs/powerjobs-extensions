@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="coolOrange.GenerateEngine.AcadElectrical.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AcadStartParameters" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/product "ACADE" /p "&lt;&lt;ACADE&gt;&gt;"</Value>
+    </Setting>
+    <Setting Name="AcadCmdTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60000</Value>
+    </Setting>
+    <Setting Name="StartWaitTime" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20000</Value>
+    </Setting>
+    <Setting Name="OpenWaitTime" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="MdbCreationWaitTime" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="DummyAcadElectricalProjectFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">%USERPROFILE%\Documents\Acade 2020\AeData\Proj\Demo\wddemo.wdp</Value>
+    </Setting>
+    <Setting Name="OverrideAcadElectricalUserPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
