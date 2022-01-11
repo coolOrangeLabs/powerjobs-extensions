@@ -3,10 +3,10 @@
 [![Vault](https://img.shields.io/badge/Autodesk%20Vault-2021-yellow.svg)](https://www.autodesk.com/products/vault/)
 [![powerJobs](https://img.shields.io/badge/coolOrange%20powerJobs-21-orange.svg)](https://www.coolorange.com/en-eu/enhance.html#powerJobs)
 
-# MsWord-PowerJobs-Extension
-Custom powerJobs application to export PDFs from Microsoft Word documents.
+# MsOffice-PowerJobs-Extension
+Custom powerJobs application to export PDFs from Microsoft Office Applications - Word, Excel, PowerPoint.
 ### Getting Started
-This is a custom powerJobs application which supports exporting PDFs from microsoft word documents. 
+This is a custom powerJobs application which supports exporting PDFs from Microsoft Office Applications - Word, Excel, PowerPoint. 
 
 Use the installer found in the release page and follow the instructions. After the installation is complete, you will find 
 - new job "Sample.MsOffice.CreatePDF.ps1" added to the Jobs folder. 
@@ -29,7 +29,7 @@ More information on how to create custom application for powerJobs can be found 
 
 If the build has been successful and you don't have any errors, you will find the new assembly in powerJobs Module folder - [MsOfficeSupport](MsOffice/Source/powerJobs/Modules/MsOfficeSupport/)
 ### Build the installer
-- install the wix toolset found [here](https://wixtoolset.org/)
+- find and install the wix toolset found on this site [here](https://wixtoolset.org/). This is necessary because the the solution is made using the wix toolset.
 - Open the Visual Studio solution 'Installer.sln' found under the [folder](MsOffice/Installer).
 - installer uses the heat to harvest the files and folders from the [folder](MsOffice/Source/powerJobs)
 - build the solution
