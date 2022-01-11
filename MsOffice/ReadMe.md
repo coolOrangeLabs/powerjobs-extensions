@@ -48,13 +48,9 @@ By registering your application like we have done in the above step, powerJobs i
     Line 9  if( @("idw","dwg","doc","docx") -notcontains $file._Extension ) {
     
 
-
-
 ## Disclaimer
 THE SAMPLE CODE ON THIS REPOSITORY IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
 THE USAGE OF THIS SAMPLE IS AT YOUR OWN RISK AND **THERE IS NO SUPPORT** RELATED TO IT.
-## Description
-Custom powerJobs application to export PDFs from Microsoft Word documents
 ## At your own risk
 The usage of these samples is at your own risk. There is no free support related to the samples. However, if you have questions to powerJobs, then visit http://www.coolorange.com/wiki or start a conversation in our support forum at http://support.coolorange.com/support/discussions
 
