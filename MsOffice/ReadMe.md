@@ -41,7 +41,7 @@ The powerJobs extension will work only with powerJobs **2022 streams** (equal or
 
 If the build has been successful and you don't have any errors, you will find the new assembly in powerJobs Module folder - [MsOfficeSupport](MsOffice/Source/powerJobs/Modules/MsOfficeSupport/)
 
-More information on how to create custom application for powerJobs can be found on the [powerJobs documentation](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications).
+Further information on how to create custom application for powerJobs can be found on the [powerJobs documentation](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications).
 
 ## At your own risk
 The usage of these samples is at your own risk. There is no free support related to the samples. However, if you have questions to powerJobs, then visit http://www.coolorange.com/wiki or start a conversation in our support forum at http://support.coolorange.com/support/discussions
