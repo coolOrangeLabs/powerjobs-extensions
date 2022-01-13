@@ -13,7 +13,7 @@ This is a custom powerJobs application which supports exporting DWFx/PDFs from A
 ### Prerequisite
 Following applications are required for running this job:
 - AutoCAD Electrical
-- [powerJobs v20.*](https://www.coolorange.com/powerjobs)
+- [powerJobs v22.0.20 and above](https://www.coolorange.com/powerjobs)
 ### Installation
 Use the installer found in the release page and follow the instructions. After the installation is complete, you will find 
 - new jobs "Sample.CreateDWFx.ElectricalProjects.ps1" and "Sample.CreatePDF.ElectricalProjects.ps1" added to the Jobs folder. 
@@ -23,7 +23,7 @@ Use the installer found in the release page and follow the instructions. After t
 Now you are good to go. Either directly use the new job and publish your DWFx/PDFs or you can change the provided sample job to your likings before using the job.
 
 ### Upgrade the application to support new Major version powerJobs
-The custom application provided here will work with powerJob's version 22 and all its updates. For newer version of powerJobs you will need to build and compile this solution. Follow the steps below to upgrade the custom application to support newer powerJobs version. 
+The custom application provided here will work with powerJob's <b><i>updates</i></b> versions which are equal and greater than 22.0.20. For newer version of powerJobs you will need to build and compile this solution. Follow the steps below to upgrade the custom application to support newer powerJobs version. 
 Furhter information on how to create custom application for powerJobs can be found [on the powerJobs wiki](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications).
 
 #### Compile the solution
