@@ -13,9 +13,13 @@ custom application extension for powerJobs
 THE SAMPLE CODE ON THIS REPOSITORY IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
 THE USAGE OF THIS SAMPLE IS AT YOUR OWN RISK AND **THERE IS NO SUPPORT** RELATED TO IT.
 ## Description
-This repository contains the code for custom powerJobs application for Microsoft Office and AutoCAD Electrical. It also contains also the installer and its source code.
+This repository contains the code for custom powerJobs application for
+- [Microsoft Office](/MsOffice)
+- [AutoCAD Electrical](/AutoCAD%20Electrical)
+ 
+It also contains the installer and its source code.
 
-Developers willing to extend powerJobs to support other applications can do so by looking at the code and sample job provided here. More information on how to create your custom application for powerJobs can be found [here](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications)
+Developers willing to extend powerJobs to support other applications can do so by looking at the code and sample job provided here. More information on how to create your custom application for powerJobs can be found at powerJob's [product documentation](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications)
 ## At your own risk
 The usage of these samples is at your own risk. There is no free support related to the samples. However, if you have questions to powerJobs, then visit http://www.coolorange.com/wiki or start a conversation in our support forum at http://support.coolorange.com/support/discussions
 
