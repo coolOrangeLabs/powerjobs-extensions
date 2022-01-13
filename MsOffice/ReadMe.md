@@ -8,7 +8,7 @@ THE SAMPLE CODE ON THIS REPOSITORY IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY K
 THE USAGE OF THIS SAMPLE IS AT YOUR OWN RISK AND **THERE IS NO SUPPORT** RELATED TO IT.
 
 # MsOffice-PowerJobs-Extension
-Custom powerJobs application to export PDFs from Microsoft Office Applications - Word, Excel, PowerPoint.
+Custom powerJobs extension to export PDFs from Microsoft Office Applications - Word, Excel, PowerPoint.
 ### Getting Started
 This is a custom powerJobs application which supports exporting PDFs from Microsoft Office Applications - Word, Excel, PowerPoint. 
 #### Prerequisite
@@ -29,7 +29,7 @@ Depending on the needs, the job can be configured to run automatically during li
 Further information on how to setup and run the job on lifecycle state change can be found on [powerJob's Getting Started documentation](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/getting_started.html#how-to-embed-the-job-in-a-status-change)
 
 ### Upgrade the powerJobs extension
-The powerJobs extension will work only with powerJobs **2022 streams** (equal or greater than 22.0.20). For newer powerJobs streams you will need to build and compile this solution. Follow the steps below to upgrade the powerJobs extension to support newer powerJobs version.
+The powerJobs extension will work only with powerJobs **2022 streams** (equal or greater than 22.0.20). For newer powerJobs' streams you will need to build and compile this solution. Follow the steps below to upgrade the powerJobs extension to support newer powerJobs version.
 
 #### Compile the solution
 - install or upgrade powerJobs Processor on your development machine. 
