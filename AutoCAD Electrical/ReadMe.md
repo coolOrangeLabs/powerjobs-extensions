@@ -31,20 +31,20 @@ The custom application provided here will work with powerJobs **2022 streams** (
 
 #### Compile the solution
 - install or upgrade powerJobs Processor on your development machine. 
-- Open the Visual Studio solution which can be found under the [AutoCAD Electrical/Source/coolOrange.AcadElectrical](AutoCAD%20Electrical/Source/coolOrange.AcadElectrical).
+- Open the Visual Studio solution which can be found under the [AutoCAD Electrical/Source/coolOrange.AcadElectrical](/AutoCAD%20Electrical/Source/coolOrange.AcadElectrical).
 - In Visual Studio right-click on References and click “Add References”.
 - Search for the assembly powerJobs.Common” in Assemblies-tab and add it to your project.
 [see here](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/_images/vs_add_reference.png)
 - build the solution
 
-If the build has been successful and you don't have any errors, you will find the new assembly in powerJobs Module folder - [coolOrange.AcadElectrical](AutoCAD%20Electrical/Source/powerJobs/Modules/coolOrange.AcadElectrical/)
+If the build has been successful and you don't have any errors, you will find the new assembly in powerJobs Module folder - [coolOrange.AcadElectrical](/AutoCAD%20Electrical/Source/powerJobs/Modules/coolOrange.AcadElectrical/)
 
 Further information on how to create custom application for powerJobs can be found [on the powerJobs wiki](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications).
 
 #### Build the installer
 - find and install the wix toolset found on the [Wix](https://wixtoolset.org/). This is necessary because the the installer solution is made using the wix toolset.
-- Open the Visual Studio solution 'Installer.sln' found within the [Installer](AutoCAD%20Electrical/Installer).
-- installer uses the heat to harvest the files and folders from the [AutoCAD Electrical/Source/powerJobs](AutoCAD%20Electrical/Source/powerJobs)
+- Open the Visual Studio solution 'Installer.sln' found within the [Installer](/AutoCAD%20Electrical/Installer).
+- installer uses the heat to harvest the files and folders from the [AutoCAD Electrical/Source/powerJobs](/AutoCAD%20Electrical/Source/powerJobs)
 - replace the UpgradeCode with another GUID found in [ProductVariables.wxi](/Installer/powerJobs.AcadElectricalPlugin.Setup/Includes/)
 - build the solution
 
