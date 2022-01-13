@@ -38,7 +38,8 @@ If the build has been successful and you don't have any errors, you will find th
 #### Build the installer
 - find and install the wix toolset found on the [Wix](https://wixtoolset.org/). This is necessary because the the installer solution is made using the wix toolset.
 - Open the Visual Studio solution 'Installer.sln' found within the [Installer](AutoCAD%20Electrical/Installer).
-- installer uses the heat to harvest the files and folders from the [AutoCAD Electrical/Source/powerJobs](AutoCAD%20Electrical/Source/powerJobs)
+- - installer uses the heat to harvest the files and folders from the [AutoCAD Electrical/Source/powerJobs](AutoCAD%20Electrical/Source/powerJobs)
+- replace the UpgradeCode with another GUID found in [ProductVariables.wxi](/Installer/powerJobs.AcadElectricalPlugin.Setup/Includes/)
 - build the solution
 
 If the build is successful, then you will find 'powerJobs.AcadElectricalPlugin.Setup_1.0.0.0_x64.msi' in the output folder.
