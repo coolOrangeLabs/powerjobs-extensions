@@ -45,10 +45,10 @@ Further information on how to create custom application for powerJobs can be fou
 - find and install the wix toolset found on the [Wix](https://wixtoolset.org/). This is necessary because the the installer solution is made using the wix toolset.
 - Open the Visual Studio solution 'Installer.sln' found within the [Installer](/AutoCAD%20Electrical/Installer).
 - installer uses the heat to harvest the files and folders from the [AutoCAD Electrical/Source/powerJobs](/AutoCAD%20Electrical/Source/powerJobs)
-- replace the UpgradeCode with another GUID found in [ProductVariables.wxi](/Installer/powerJobs.AcadElectricalPlugin.Setup/Includes/)
+- replace the UpgradeCode with new GUID found in [ProductVariables.wxi](https://github.com/coolOrangeLabs/powerjobs-extensions/blob/55ff0a1c1acee9046559b186a0d82680a56373e8/AutoCAD%20Electrical/Installer/powerJobs.AcadElectricalPlugin.Setup/Includes/ProductVariables.wxi#L3)
 - build the solution
 
-If the build is successful, then you will find 'powerJobs.AcadElectricalPlugin.Setup_1.0.0.0_x64.msi' in the output folder.
+If the build is successful, then you can use the installer 'powerJobs.AcadElectricalPlugin.Setup_1.0.0.0_x64.msi'  which you will find in the VS project's output folder.
 
 ## At your own risk
 The usage of these samples is at your own risk. There is no free support related to the samples. However, if you have questions to powerJobs, then visit http://www.coolorange.com/wiki or start a conversation in our support forum at http://support.coolorange.com/support/discussions
