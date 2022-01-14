@@ -28,13 +28,11 @@ Further information on how to setup and run the job on lifecycle state change ca
 
 ### Upgrade the solution
 The custom application provided here will work with powerJobs **2022 streams** (equal or greater than 22.0.20). For newer powerJobs' streams you will need to build and compile this solution. Follow the steps below to upgrade the powerJobs extension to support newer powerJobs version.
-
-#### Compile the Solution
-##### Prerequisite
+#### Prerequisite
 - Find and install the wix toolset found on the [Wix](https://wixtoolset.org/). This is necessary because the the installer project is made using the wix toolset. 
 - Install or upgrade powerJobs Processor on your development machine.
 - Clone this repository
-##### Build Solution
+#### Build Solution
 - Open the Visual Studio solution which can be found under the [AutoCAD Electrical](/AutoCAD%20Electrical).
 - In Visual Studio right-click on References and click “Add References”.
 - Search for the assembly powerJobs.Common” in Assemblies-tab and add it to your project.
