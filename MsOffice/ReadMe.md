@@ -18,28 +18,31 @@ Following applications are required for running this job:
 
 #### Installation
 Use the installer found in the release page and follow the instructions. After the installation is complete, you will find 
-- new job "Sample.MsOffice.CreatePDF.ps1" added to the Jobs folder. 
-- new module 'MsOfficeLoad.psm1' added to the modules folder 
-- new custom powerJobs application 'MsOfficeApplication.dll' in the subfolder 'MsOfficeSupport' under the modules folder.
+- New job "Sample.MsOffice.CreatePDF.ps1" added to the Jobs folder. 
+- New module 'MsOfficeLoad.psm1' added to the modules folder 
+- New custom powerJobs application 'MsOfficeApplication.dll' in the subfolder 'MsOfficeSupport' under the modules folder.
 
 #### Setting and running the job
-Rename the job Sample.MsOffice.CreatePDF.ps1 to Custom.CreatePDF.ps1 so your PDF job can be identified as your own job and will not be overwritten by future updates. You can modify this copied job as you please.
+Rename the installed sample jobs so that your job can be identified as custom job and will not be overwritten by future updates. You can modify this copied job as you please.
 
-Depending on the needs, the job can be configured to run automatically during lifecycle state change or in some other ways.
+Depending on the needs, the job can be triggered to run automatically during lifecycle state change or in some other ways.
 Further information on how to setup and run the job on lifecycle state change can be found on [powerJob's Getting Started documentation](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/getting_started.html#how-to-embed-the-job-in-a-status-change)
 
 ### Upgrade the powerJobs extension
 The powerJobs extension will work only with powerJobs **2022 streams** (equal or greater than 22.0.20). For newer powerJobs' streams you will need to build and compile this solution. Follow the steps below to upgrade the powerJobs extension to support newer powerJobs version.
-
-#### Compile the solution
-- install or upgrade powerJobs Processor on your development machine. 
-- Open the Visual Studio solution which can be found under [MsOffice-PowerJobs-Extension](MsOffice/Source/MsOffice-PowerJobs-Extension).
+#### Prerequisite
+- Find and install the wix toolset found on the [Wix](https://wixtoolset.org/). This is necessary because the the installer project is made using the wix toolset. 
+- Install or upgrade powerJobs Processor on your development machine.
+- Clone this repository
+#### Build Solution
+- Open the Visual Studio solution which can be found under [MsOffice](/MsOffice).
 - In Visual Studio right-click on References and click “Add References”.
 - Search for the assembly powerJobs.Common” in Assemblies-tab and add it to your project.
 [see here](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/_images/vs_add_reference.png)
-- build the solution
+- Replace the UpgradeCode with new GUID found in [ProductVariables.wxi](https://github.com/coolOrangeLabs/powerjobs-extensions/blob/0973f254b52c9e85c144df1a9ffe39e794c08aa0/MsOffice/Installer/Includes/ProductVariables.wxi#L3)
+- Build the solution
 
-If the build has been successful and you don't have any errors, you will find the new assembly in powerJobs Module folder - [MsOfficeSupport](MsOffice/Source/powerJobs/Modules/MsOfficeSupport/)
+If the build went through and you don't have any errors, then you can use the installer 'powerJobs.MSOfficePlugin.Setup_1.0.0.0_x64.msi'  which you will find in the VS Installer project's output folder.
 
 Further information on how to create custom application for powerJobs can be found on the [powerJobs documentation](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications).
 
