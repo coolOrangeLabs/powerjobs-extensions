@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="DIR_POWERJOBS_PLUGIN">
+            <Directory Id="dirF70FE1AA9A125151DC123A70653781CA" Name="Jobs">
+                <Component Id="cmp98A9B527F5001C360E6BF66748A65894" Guid="{C4E83A5E-B20A-4696-BFF5-F09B6DB71A9D}">
+                    <File Id="fil529E9F4B1176571BB1CF1BC6BAFE6B28" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Jobs\Sample.CreateDWFx.ElectricalProjects.ps1" />
+                </Component>
+                <Component Id="cmp2F15DD0EF56E0F5BF82239B2EE485DBA" Guid="{6ED27C61-32BA-43EF-B65F-92AB4B331962}">
+                    <File Id="filDCF05ADB318EEC78CD931DBC0090A504" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Jobs\Sample.CreatePDF.ElectricalProjects.ps1" />
+                </Component>
+            </Directory>
+            <Directory Id="dir9E7CD643E9A9A2D795C2453CE2313473" Name="Modules">
+                <Component Id="cmp09BDE428C77E6B4B0610C324B4BDC2A7" Guid="{C099F56C-C26E-4B5D-A5DD-6161D35BCA61}">
+                    <File Id="fil74AB0194817171AE9F7B82301933BADA" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\powerJobsAcadElectrical.psm1" />
+                </Component>
+                <Directory Id="dir0714E4E0A32B33C1B50F2C7A5831E30E" Name="coolOrange.AcadElectrical">
+                    <Component Id="cmpC1086A0AF182C34C0DEF6C673B5352AC" Guid="{9ED152BD-0956-4DB7-A87B-0A4C56501D8C}">
+                        <File Id="fil8A7FF3643F9079CE2A72459DE960FB53" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\coolOrange.AcadElectrical\coolOrange.AutoCADElectrical.dll" />
+                    </Component>
+                    <Component Id="cmpEAE32784EE7788E826C0C37BE54A9812" Guid="{68DFEB82-0A4B-4406-9321-47DDD0D01D65}">
+                        <File Id="fil430FE20A072FF1D0AA8AF34EFB9AEAE1" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\coolOrange.AcadElectrical\coolOrange.AutoCADElectrical.dll.config" />
+                    </Component>
+                    <Component Id="cmp6E8EB3355BA1D6017115F0745CF6F14E" Guid="{F267736C-B3B6-433D-B5B2-8207D99C5842}">
+                        <File Id="fil54618623FE7BF31EF2B0F96BC0846F27" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\coolOrange.AcadElectrical\INIFileParser.dll" />
+                    </Component>
+                    <Component Id="cmp5E89215993C65520A6D6FA7A74D50236" Guid="{E5F76F00-BCAA-4A72-AAFA-1609CD7B5D2D}">
+                        <File Id="filA2DCDB69DC4D09EE17FAD6864013185D" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\coolOrange.AcadElectrical\INIFileParser.xml" />
+                    </Component>
+                    <Component Id="cmp4D1F40AC12F9B357D6AAABDB6032B545" Guid="{507F30DC-397E-40C3-81D9-D5790F99218E}">
+                        <File Id="filB77B516A8940F861CC1E8385EDC8E7F6" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\coolOrange.AcadElectrical\log4net.dll" />
+                    </Component>
+                    <Component Id="cmp8531731A6C515A71C3B18F739664B3CC" Guid="{8912DD5A-F5E2-486F-8EC9-864D13BACAFF}">
+                        <File Id="fil72F06C2F8F506C546C04FC79A0444D7A" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\coolOrange.AcadElectrical\log4net.xml" />
+                    </Component>
+                </Directory>
+                <Directory Id="dir67A348A2D9893C53416EC38C065B0FE5" Name="Export">
+                    <Component Id="cmpEB98EBE399C537A36781F6EE100A170C" Guid="{8DDE7157-6E94-44DC-89E2-FEE4EB0F9DA4}">
+                        <File Id="fil48925D19AEF7A45AD2D26F8C94D09ECC" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Export\PDF_AcadElectrical.ini" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="HeatGenerated_PowerJobsPlugin">
+            <ComponentRef Id="cmp98A9B527F5001C360E6BF66748A65894" />
+            <ComponentRef Id="cmp2F15DD0EF56E0F5BF82239B2EE485DBA" />
+            <ComponentRef Id="cmp09BDE428C77E6B4B0610C324B4BDC2A7" />
+            <ComponentRef Id="cmpC1086A0AF182C34C0DEF6C673B5352AC" />
+            <ComponentRef Id="cmpEAE32784EE7788E826C0C37BE54A9812" />
+            <ComponentRef Id="cmp6E8EB3355BA1D6017115F0745CF6F14E" />
+            <ComponentRef Id="cmp5E89215993C65520A6D6FA7A74D50236" />
+            <ComponentRef Id="cmp4D1F40AC12F9B357D6AAABDB6032B545" />
+            <ComponentRef Id="cmp8531731A6C515A71C3B18F739664B3CC" />
+            <ComponentRef Id="cmpEB98EBE399C537A36781F6EE100A170C" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
