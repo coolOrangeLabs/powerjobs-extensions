@@ -6,15 +6,15 @@
     <Minor>0</Minor>
     <Build>0</Build>
     <Revision>0</Revision>
-    <Name>coolOrange powerJobs AutoCAD Electrical Plugin</Name>
+    <Name>powerJobs.MsOfficePlugin.Setup</Name>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <ProductVersion>3.5</ProductVersion>
-    <ProjectGuid>{459b204c-23bf-4639-9b8f-6b15c86fa9b7}</ProjectGuid>
+    <ProjectGuid>{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>powerJobs.AcadElectricalPlugin.Setup_$(Major).$(Minor).$(Revision).$(Build)_$(Platform)</OutputName>
+    <OutputName>powerJobs.MsOfficePlugin.Setup_$(Major).$(Minor).$(Revision).$(Build)_$(Platform)</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>

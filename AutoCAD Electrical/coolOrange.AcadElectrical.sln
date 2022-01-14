@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coolOrange.AcadElectrical", "coolOrange.AcadElectrical\coolOrange.AcadElectrical.csproj", "{9F75E742-E800-47B7-B653-654018B2286A}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerJobs.AcadElectricalPlugin.Setup", "Installer\powerJobs.AcadElectricalPlugin.Setup.wixproj", "{459B204C-23BF-4639-9B8F-6B15C86FA9B7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F75E742-E800-47B7-B653-654018B2286A} = {9F75E742-E800-47B7-B653-654018B2286A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

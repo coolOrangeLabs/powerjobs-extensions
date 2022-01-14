@@ -1,19 +1,19 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("MsWordApplication")]
-[assembly: AssemblyDescription("MsWordApplication for powerJobs Processor")]
+[assembly: AssemblyTitle("MSOfficeApplication")]
+[assembly: AssemblyDescription("MSOfficeApplication for powerJobs Processor")]
 
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MsWordApplication")]
+[assembly: AssemblyProduct("MSOfficeApplication")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("9862ff3e-3ee3-49e3-b3e7-6c595a84e40f")]
+[assembly: Guid("768B9BF9-254A-4158-8104-9A3D1844EE08")]
 
 [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

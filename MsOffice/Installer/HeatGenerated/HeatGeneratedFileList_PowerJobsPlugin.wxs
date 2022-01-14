@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="DIR_POWERJOBS_PLUGIN">
+            <Directory Id="dirF70FE1AA9A125151DC123A70653781CA" Name="Jobs">
+                <Component Id="cmp51FA767343060048F074819786321C7E" Guid="{547316D5-7C10-476D-9AD4-A64CABA72798}">
+                    <File Id="filF017E42DA3D0CC15B6AD3B9905B3496C" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Jobs\Sample.MsOffice.CreatePDF.ps1" />
+                </Component>
+            </Directory>
+            <Directory Id="dir9E7CD643E9A9A2D795C2453CE2313473" Name="Modules">
+                <Component Id="cmp55D3C37D5CB1ADD6573E00DADFB020A0" Guid="{D073DC53-9CAB-400A-9873-6466EB5B5EA7}">
+                    <File Id="fil14E027D4E27EF40B1A646C6E09B18557" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\MsOfficeLoad.psm1" />
+                </Component>
+                <Directory Id="dir85525FA9CC4DCDF586130FC2A65CEE44" Name="MsOfficeSupport">
+                    <Component Id="cmp7C4DE03FA93170E1785EEA87B5190EA6" Guid="{546E851E-7EF8-48E7-9393-FC2B3E050B22}">
+                        <File Id="filAC1F2442990451BE9C5FB029BB923069" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\MsOfficeSupport\MsOfficeApplication.dll" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="HeatGenerated_PowerJobsPlugin">
+            <ComponentRef Id="cmp51FA767343060048F074819786321C7E" />
+            <ComponentRef Id="cmp55D3C37D5CB1ADD6573E00DADFB020A0" />
+            <ComponentRef Id="cmp7C4DE03FA93170E1785EEA87B5190EA6" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>
