@@ -40,7 +40,7 @@ The custom application provided here will work with powerJobs **2022 streams** (
 - Replace the UpgradeCode with new GUID found in [ProductVariables.wxi](https://github.com/coolOrangeLabs/powerjobs-extensions/blob/5e620d5beabb785b12b513263fa3934d2e2c27ce/AutoCAD%20Electrical/Installer/Includes/ProductVariables.wxi#L3)
 - Build the solution
 
-If the build has been successful and you don't have any errors, then you can use the installer 'powerJobs.AcadElectricalPlugin.Setup_1.0.0.0_x64.msi'  which you will find in the VS Installer project's output folder.
+If the build went through and you don't have any errors, then you can use the installer 'powerJobs.AcadElectricalPlugin.Setup_1.0.0.0_x64.msi'  which you will find in the VS Installer project's output folder.
 
 Further information on how to create custom application for powerJobs can be found [on the powerJobs wiki](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/jobprocessor/applications.html#custom-applications).
 
