@@ -34,13 +34,32 @@ steps:
  
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'Release'
+    rootFolderOrFile: '/bin/Release'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/powerLoad_v$(buildMajor).$(buildMinor).$(Build.BuildNumber).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/powerJobs-extsions_v$(buildMajor).$(buildMinor).$(Build.BuildNumber).zip'
     replaceExistingArchive: true
+
+- task: CopyFiles@1
+  inputs: 
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'AutoCAD Electrical\Installer\bin\$(buildConfiguration)\en-us\*.msi' 
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    cleanTargetFolder: true
+    overWrite: true
+    flattenFolders: true
+- task: CopyFiles@2
+  inputs: 
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'MsOffice\Installer\bin\$(buildConfiguration)\en-us\*.msi' 
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    cleanTargetFolder: true
+    overWrite: true
+    flattenFolders: true
+  
+    
  
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'Output'
+    artifactName: 'Setups'
