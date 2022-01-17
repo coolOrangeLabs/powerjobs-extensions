@@ -10,7 +10,7 @@ pool:
  
  
 variables:   
-  solution: '**/*.sln'
+  solution: '**/*.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   buildMajor: '1'
