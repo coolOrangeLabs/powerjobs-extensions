@@ -10,12 +10,13 @@ pool:
  
  
 variables:   
-  solution: '**/*.csproj'
+  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  buildMajor: '1'
-  buildMinor: '0'
-  buildRevision: '0'
+  buildMajor: '$(Major)'
+  buildMinor: '$(Minor)'
+  buildRevision: '$(Revision)'
+  increment: $[counter(1,1)]
  
 steps:
 - task: NuGetToolInstaller@0
