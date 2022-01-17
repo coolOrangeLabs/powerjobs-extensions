@@ -15,7 +15,7 @@ variables:
   buildConfiguration: 'Release'
   buildMajor: '1'
   buildMinor: '0'
-  buildRevision: '$(Revision)'
+  buildRevision: '0'
  
 steps:
 - task: NuGetToolInstaller@0
