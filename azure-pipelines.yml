@@ -13,9 +13,9 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  buildMajor: '$(Major)'
-  buildMinor: '$(Minor)'
-  buildRevision: '$(Revision)'
+  buildMajor: '1'
+  buildMinor: '0'
+  buildRevision: '0'
   increment: $[counter(1,1)]
  
 steps:
