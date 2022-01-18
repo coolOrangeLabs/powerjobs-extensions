@@ -40,6 +40,12 @@ steps:
     cleanTargetFolder: true
     overWrite: true
     flattenFolders: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'Setups'
+
 - task: CopyFiles@2
   inputs: 
     sourceFolder: '$(Build.SourcesDirectory)'
