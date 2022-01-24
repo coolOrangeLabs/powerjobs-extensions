@@ -1,10 +1,10 @@
 ﻿using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.Word
+namespace coolOrange.MsOffice.Word
 {
     public class MsWordApplicationExporter : DocumentExporterBase
     {
-        public MsWordApplicationExporter(MsWordApplication MsWordApplication) : base(MsWordApplication)
+        public MsWordApplicationExporter(Application MsWordApplication) : base(MsWordApplication)
         {
             ExportTypes.Add(typeof(MsWordPdfExport)); //Add your export types which are inherited from IDocumentExport
         }

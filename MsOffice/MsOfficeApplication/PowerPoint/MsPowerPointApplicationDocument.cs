@@ -2,7 +2,7 @@
 using Microsoft.Office.Interop.PowerPoint;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.PowerPoint
+namespace coolOrange.MsOffice.PowerPoint
 {
     public class MsPowerPointApplicationDocument : DocumentBase
     {
@@ -10,7 +10,7 @@ namespace MsOfficeApplication.PowerPoint
         public MsPowerPointApplicationDocument(IApplication application, OpenDocumentSettings openSettings) : base(application, openSettings)
         {
             //Do something with the OpenSettings like cache information and on Close_Internal(), close a connection
-            Presentations presentations = (application as MsPowerPointApplication)?.PowerPoint.Presentations;
+            Presentations presentations = (application as Application)?.PowerPoint.Presentations;
             var fullName = openSettings.File.FullName;
             _presentation = presentations.Open(fullName, Microsoft.Office.Core.MsoTriState.msoTrue, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoFalse);
         }

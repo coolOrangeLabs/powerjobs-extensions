@@ -8,5 +8,5 @@
 #=============================================================================#
 
 
-Add-Type -Path "$($Env:POWERJOBS_MODULESDIR)\coolOrange.AcadElectrical\coolOrange.AutoCADElectrical.dll"
+Add-Type -Path "$($Env:POWERJOBS_MODULESDIR)\AutoCADElectrical\coolOrange.AutoCADElectrical.dll"
 Register-Application ([coolOrange.AutoCADElectrical.Application])

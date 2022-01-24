@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.Word
+namespace coolOrange.MsOffice.Word
 {
     public class MsWordPdfExport : DocumentExportBase
     {
         public override HashSet<string> SupportedDocumentTypes
         {
-            get { return ((MsWordApplication)SourceDocument.Application).SupportedFileTypes; } //WATCH OUT: When using multiple Exports this could be dangerous, because then every Export supports ALL file formats from the Application and this could be a lot more then an individual export usually supports.
+            get { return ((Application)SourceDocument.Application).SupportedFileTypes; } //WATCH OUT: When using multiple Exports this could be dangerous, because then every Export supports ALL file formats from the Application and this could be a lot more then an individual export usually supports.
         }
 
 

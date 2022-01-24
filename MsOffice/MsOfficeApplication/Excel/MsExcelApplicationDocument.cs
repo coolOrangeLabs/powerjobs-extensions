@@ -2,7 +2,7 @@
 using Microsoft.Office.Interop.Excel;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.Excel
+namespace coolOrange.MsOffice.Excel
 {
     public class MsExcelApplicationDocument : DocumentBase
     {
@@ -11,7 +11,7 @@ namespace MsOfficeApplication.Excel
         public MsExcelApplicationDocument(IApplication application, OpenDocumentSettings openSettings) : base(application, openSettings)
         {
             //Do something with the OpenSettings like cache information and on Close_Internal(), close a connection
-            Workbooks workbooks = (application as MsExcelApplication)?.Excel.Workbooks;
+            Workbooks workbooks = (application as Application)?.Excel.Workbooks;
             var fullName = openSettings.File.FullName;
             _workbook = workbooks.Open(fullName);
         }

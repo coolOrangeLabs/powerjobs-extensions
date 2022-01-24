@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.Excel
+namespace coolOrange.MsOffice.Excel
 {
-    public class MsExcelApplication : ApplicationBase
+    public class Application : ApplicationBase
     {
         private Microsoft.Office.Interop.Excel.Application _excel;
 
-        public MsExcelApplication()
+        public Application()
         {
             Exporter = new MsExcelApplicationExporter(this);
         }

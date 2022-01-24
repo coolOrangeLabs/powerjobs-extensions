@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.Excel
+namespace coolOrange.MsOffice.Excel
 {
     public class MsExcelPdfExport : DocumentExportBase
     {
@@ -28,7 +28,7 @@ namespace MsOfficeApplication.Excel
         {
             get
             {
-                return ((MsExcelApplication)SourceDocument.Application).SupportedFileTypes;
+                return ((Application)SourceDocument.Application).SupportedFileTypes;
             } //WATCH OUT: When using multiple Exports this could be dangerous, because then every Export supports ALL file formats from the Application and this could be a lot more then an individual export usually supports.
         }
     }

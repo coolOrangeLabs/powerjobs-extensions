@@ -1,10 +1,10 @@
 ﻿using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.PowerPoint
+namespace coolOrange.MsOffice.PowerPoint
 {
     public class MsPowerPointApplicationExporter : DocumentExporterBase
     {
-        public MsPowerPointApplicationExporter(MsPowerPointApplication msPowerPointApplication) : base(msPowerPointApplication)
+        public MsPowerPointApplicationExporter(Application msPowerPointApplication) : base(msPowerPointApplication)
         {
             ExportTypes.Add(typeof(MsPowerPointPdfExport));
         }

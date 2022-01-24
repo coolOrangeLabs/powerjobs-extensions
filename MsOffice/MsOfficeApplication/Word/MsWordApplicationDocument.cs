@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Word;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.Word
+namespace coolOrange.MsOffice.Word
 {
     public class MsWordApplicationDocument : DocumentBase
     {
@@ -13,7 +13,7 @@ namespace MsOfficeApplication.Word
             : base(application, openSettings)
         {
             //Do something with the OpenSettings like cache information and on Close_Internal(), close a connection
-            Documents documents = (application as MsWordApplication)?.Word.Documents;
+            Documents documents = (application as Application)?.Word.Documents;
             var fullName = openSettings.File.FullName;
             _document = documents.Open(fullName);
         }

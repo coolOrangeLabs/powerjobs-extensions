@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.PowerPoint
+namespace coolOrange.MsOffice.PowerPoint
 {
-    public class MsPowerPointApplication : ApplicationBase
+    public class Application : ApplicationBase
     {
         private Microsoft.Office.Interop.PowerPoint.Application _powerpoint;
 
-        public MsPowerPointApplication()
+        public Application()
         {
             Exporter = new MsPowerPointApplicationExporter(this);
         }

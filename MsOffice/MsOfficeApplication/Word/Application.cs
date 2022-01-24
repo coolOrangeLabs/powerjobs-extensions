@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using powerJobs.Common.Applications;
 
-namespace MsOfficeApplication.Word
+namespace coolOrange.MsOffice.Word
 {
-    public class MsWordApplication : ApplicationBase
+    public class Application : ApplicationBase
     {
         private Microsoft.Office.Interop.Word.Application _word;
 
-        public MsWordApplication()
+        public Application()
         {
             Exporter = new MsWordApplicationExporter(this);
         }
