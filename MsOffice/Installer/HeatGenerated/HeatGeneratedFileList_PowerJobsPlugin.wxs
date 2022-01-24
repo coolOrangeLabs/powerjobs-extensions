@@ -3,16 +3,16 @@
     <Fragment>
         <DirectoryRef Id="DIR_POWERJOBS_PLUGIN">
             <Directory Id="dirF70FE1AA9A125151DC123A70653781CA" Name="Jobs">
-                <Component Id="cmp51FA767343060048F074819786321C7E" Guid="{D440BA2B-9E4E-42D5-854A-1DB2EDC362AC}">
+                <Component Id="cmp51FA767343060048F074819786321C7E" Guid="{CAAB5657-4C03-4018-97FE-E66CF7D23626}">
                     <File Id="filF017E42DA3D0CC15B6AD3B9905B3496C" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Jobs\Sample.MsOffice.CreatePDF.ps1" />
                 </Component>
             </Directory>
             <Directory Id="dir9E7CD643E9A9A2D795C2453CE2313473" Name="Modules">
-                <Component Id="cmp1313EB20E82F2F271C91F3311C3C3C7A" Guid="{32ED581C-DD59-4DC5-82CD-EE1515E41444}">
+                <Component Id="cmp1313EB20E82F2F271C91F3311C3C3C7A" Guid="{61F87E06-0816-4D8C-B246-FB160EF36029}">
                     <File Id="fil982AFC4E39DE314CAB234486AAEE155A" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\register-MsOffice-application.psm1" />
                 </Component>
                 <Directory Id="dirA1AFD754476DD50AA87710DB5DF5C658" Name="MsOffice">
-                    <Component Id="cmp2CD4BB39D2A88E8D2459D90CD74EC3E5" Guid="{02A755AB-3707-4096-8B51-1BA27C512187}">
+                    <Component Id="cmp2CD4BB39D2A88E8D2459D90CD74EC3E5" Guid="{43DB79E3-FFA3-4EDE-B908-32B5A6A02972}">
                         <File Id="filE4112966B5981AE11E6AECD44CC38047" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\MsOffice\coolOrange.MsOffice.dll" />
                     </Component>
                 </Directory>

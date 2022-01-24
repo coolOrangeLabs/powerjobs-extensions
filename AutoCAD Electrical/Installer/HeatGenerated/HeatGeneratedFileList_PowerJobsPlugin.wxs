@@ -3,39 +3,39 @@
     <Fragment>
         <DirectoryRef Id="DIR_POWERJOBS_PLUGIN">
             <Directory Id="dirF70FE1AA9A125151DC123A70653781CA" Name="Jobs">
-                <Component Id="cmpB8CC1288AFA67B89067957C7BB3B66D8" Guid="{8B5A7D8B-58BB-43D1-B62C-21696E3AC18C}">
+                <Component Id="cmpB8CC1288AFA67B89067957C7BB3B66D8" Guid="{67235BD6-F143-4329-BCE5-9010CF491931}">
                     <File Id="fil88544FBB7255A419EB9EC8B59CD6B712" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Jobs\Sample.AcadElectrical.CreateDWFx.ps1" />
                 </Component>
-                <Component Id="cmp9D75AF42E07ACBFB309E4A6474E3AED1" Guid="{B8BFE976-F8DD-48B4-A4E9-D8E6A27C7800}">
+                <Component Id="cmp9D75AF42E07ACBFB309E4A6474E3AED1" Guid="{BCCA10A1-2DAD-4382-9867-B70276C3369F}">
                     <File Id="fil788EDF64FDDF9387ED5AA81051453CA0" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Jobs\Sample.AcadElectrical.CreatePDF.ps1" />
                 </Component>
             </Directory>
             <Directory Id="dir9E7CD643E9A9A2D795C2453CE2313473" Name="Modules">
-                <Component Id="cmpAC28165FB23B70856C1B026E851D56D7" Guid="{5D500190-B246-4231-BD5F-8DB969B26A99}">
+                <Component Id="cmpAC28165FB23B70856C1B026E851D56D7" Guid="{5A02CA1E-095C-4B9E-AAC2-0B5962DBFD43}">
                     <File Id="filA3907340B2778245D373429FB403858C" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\register-AcadElectrical-application.psm1" />
                 </Component>
                 <Directory Id="dirDDCD22F7C4133849FA4213627ADBCF61" Name="AutoCADElectrical">
-                    <Component Id="cmpD643930DCF5CFA1E47A55F4585D398C6" Guid="{13205335-137E-4FC5-ADEF-8DB910FF0A41}">
+                    <Component Id="cmpD643930DCF5CFA1E47A55F4585D398C6" Guid="{AC443D65-5F93-4074-885D-85DD89CF6BBF}">
                         <File Id="fil2A4683EFF2363D41B781717B655377CE" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\AutoCADElectrical\coolOrange.AutoCADElectrical.dll" />
                     </Component>
-                    <Component Id="cmp08DC1CAB485F7A480B708065926C2A46" Guid="{C28E4EF5-FF2D-48E3-BF91-E08DD3F333FB}">
+                    <Component Id="cmp08DC1CAB485F7A480B708065926C2A46" Guid="{FE36532F-2E5C-48F4-896E-BF654E2D2C10}">
                         <File Id="fil4436DABE6983CF78C54DA8F1F1052F3D" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\AutoCADElectrical\coolOrange.AutoCADElectrical.dll.config" />
                     </Component>
-                    <Component Id="cmp03483A3C26F1821AE8020B6E0645D655" Guid="{16467C22-73CC-45C3-A90C-A8B64B775BF2}">
+                    <Component Id="cmp03483A3C26F1821AE8020B6E0645D655" Guid="{ACC65DC3-DA2E-4328-8C23-37215E50EE84}">
                         <File Id="fil5A695DD11349FE855F08CA1D4042D5C3" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\AutoCADElectrical\INIFileParser.dll" />
                     </Component>
-                    <Component Id="cmp84E20901E3C2AC1A236FC2A7AC84520A" Guid="{4B5483A4-3454-4AF7-BC0B-CF7C9D8F44AF}">
+                    <Component Id="cmp84E20901E3C2AC1A236FC2A7AC84520A" Guid="{80BADDF2-509C-46D0-97A9-296586653B8F}">
                         <File Id="fil3C3661E9F36C05F997726086A1093D35" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\AutoCADElectrical\INIFileParser.xml" />
                     </Component>
-                    <Component Id="cmp78C817DBA6861B17948D6EF682EE0165" Guid="{8A4E3B95-003E-4283-A8EE-F586D949AA07}">
+                    <Component Id="cmp78C817DBA6861B17948D6EF682EE0165" Guid="{DF6E9499-09C4-4334-9B2C-3FFBA8BEDBF6}">
                         <File Id="fil650F7A3EBB6111A27AC73792930AED09" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\AutoCADElectrical\log4net.dll" />
                     </Component>
-                    <Component Id="cmpF612378D2E18DC636DD403EC72F25E3E" Guid="{961DC621-13EE-46ED-A4C9-6D55D5A89C52}">
+                    <Component Id="cmpF612378D2E18DC636DD403EC72F25E3E" Guid="{F852A548-FCF9-4421-9F50-BF8425194C81}">
                         <File Id="filD3F74ECB4046127420870CAA3997CC4D" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\AutoCADElectrical\log4net.xml" />
                     </Component>
                 </Directory>
                 <Directory Id="dir67A348A2D9893C53416EC38C065B0FE5" Name="Export">
-                    <Component Id="cmpEB98EBE399C537A36781F6EE100A170C" Guid="{12CDFDA7-CD56-4857-9EF0-158FA19E8833}">
+                    <Component Id="cmpEB98EBE399C537A36781F6EE100A170C" Guid="{C17F2BA8-BEA0-4324-AE86-ED70A6DD5E8B}">
                         <File Id="fil48925D19AEF7A45AD2D26F8C94D09ECC" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Export\PDF_AcadElectrical.ini" />
                     </Component>
                 </Directory>
