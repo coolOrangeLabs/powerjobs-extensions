@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Dynamic;
 using System.Reflection;
 using System.Threading;
-using Autodesk.AutoCAD.Interop;
 using log4net;
 
 namespace coolOrange.AutoCADElectrical.Helpers
@@ -10,7 +10,7 @@ namespace coolOrange.AutoCADElectrical.Helpers
     {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static void WaitUntilReady(this AcadApplication acadApplication, int additionalWaitTime = 0)
+        public static void WaitUntilReady(dynamic acadApplication, int additionalWaitTime = 0)
         {
             Log.Debug($"Wait for AutoCAD to be ready for {Properties.Settings.Default.AcadCmdTimeout}ms");
             var duration = 0;
@@ -33,11 +33,11 @@ namespace coolOrange.AutoCADElectrical.Helpers
             Log.Debug("AutoCAD ready!");
         }
 
-        public static AcadDocument GetActiveDocument(this AcadApplication acadApplication)
+        public static dynamic GetActiveDocument(dynamic acadApplication)
         {
             Log.Debug($"Getting active document ... (Timeout {Properties.Settings.Default.AcadCmdTimeout}ms) ");
             var duration = 0;
-            AcadDocument activeDocument = null;
+            dynamic activeDocument = null;
             while (duration < Properties.Settings.Default.AcadCmdTimeout)
             {
                 try
@@ -58,7 +58,7 @@ namespace coolOrange.AutoCADElectrical.Helpers
             return activeDocument;
         }
 
-        public static string GetPrinterConfigPath(this AcadApplication acadApplication)
+        public static string GetPrinterConfigPath(dynamic acadApplication)
         {
             Log.Debug($"Getting printer config path from preferences ... (Timeout {Properties.Settings.Default.AcadCmdTimeout}ms) ");
             var duration = 0;

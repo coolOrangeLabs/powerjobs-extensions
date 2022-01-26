@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using Autodesk.AutoCAD.Interop;
 using coolOrange.AutoCADElectrical.Helpers;
 using IniParser;
 using IniParser.Model;
@@ -17,7 +16,7 @@ namespace coolOrange.AutoCADElectrical.Exports
     {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        protected AcadDocument AcadActiveDocument { get; set; }
+        protected dynamic AcadActiveDocument { get; set; }
 
         public AcadElectricalExportBase(IDocument sourceDocument, ExportSettings settings) : base(sourceDocument, settings)
         {
@@ -36,14 +35,14 @@ namespace coolOrange.AutoCADElectrical.Exports
                     throw new ApplicationException($"Configuration file '{configFile}' does not exist!");
 
                 // activate AutoCAD electrical project file
-                AcadActiveDocument = ((Application)SourceDocument.Application).AcadApplication.GetActiveDocument();
+                AcadActiveDocument = AcadAppHelper.GetActiveDocument(((Application)SourceDocument.Application).AcadApplication);
                 ActivateProjectFile(SourceDocument.OpenSettings.File);
 
                 // creating DSD file
                 var dsdFilename = CreateDsdFile(SourceDocument.OpenSettings.File, configFile);
 
                 // publishing PDF file
-                ((Application)SourceDocument.Application).AcadApplication.WaitUntilReady(Properties.Settings.Default.MdbCreationWaitTime);
+                AcadAppHelper.WaitUntilReady(((Application)SourceDocument.Application).AcadApplication, Properties.Settings.Default.MdbCreationWaitTime);
                 PublishFile(dsdFilename);
             }
             catch (Exception ex)
@@ -63,7 +62,7 @@ namespace coolOrange.AutoCADElectrical.Exports
             {
                 Log.Info($"Activating AutoCAD Electrical project file '{wdpFile.FullName}' ...");
                 var wdpFilename = wdpFile.FullName.Replace('\\', '/');
-                AcadActiveDocument.SendCommandWait($"(c:wd_makeproj_current \"{wdpFilename}\"){Environment.NewLine}");
+                AcadDocHelper.SendCommandWait(AcadActiveDocument, $"(c:wd_makeproj_current \"{wdpFilename}\"){Environment.NewLine}");
                 Log.Info($"Successfully activated AutoCAD Electrical project file!");
             }
             catch (Exception ex)
@@ -80,15 +79,15 @@ namespace coolOrange.AutoCADElectrical.Exports
             {
                 // prepare for publish command
                 Log.Debug("Setting variable BACKGROUNDPLOT = 0 ...");
-                AcadActiveDocument.SendCommandWait("_backgroundplot 0 ");
+                AcadDocHelper.SendCommandWait(AcadActiveDocument,"_backgroundplot 0 ");
 
                 Log.Debug("Setting variable FILEDIA = 0 ...");
-                AcadActiveDocument.SendCommandWait("_filedia 0 ");
+                AcadDocHelper.SendCommandWait(AcadActiveDocument, "_filedia 0 ");
 
                 // call publish command
                 Log.Info("Starting publish command ...");
 
-                AcadActiveDocument.SendCommandWait($"_-publish {dsdFilename}{Environment.NewLine}");
+                AcadDocHelper.SendCommandWait(AcadActiveDocument, $"_-publish {dsdFilename}{Environment.NewLine}");
                 Log.Info($"Successfully created {Name} file!");
             }
             catch (Exception ex)
@@ -139,7 +138,7 @@ namespace coolOrange.AutoCADElectrical.Exports
                 var originMdbDir = Properties.Settings.Default.OverrideAcadElectricalUserPath;
                 if (string.IsNullOrEmpty(originMdbDir))
                 {
-                    var printerConfigPath = new System.IO.DirectoryInfo(((Application)SourceDocument.Application).AcadApplication.GetPrinterConfigPath());
+                    var printerConfigPath = new System.IO.DirectoryInfo(AcadAppHelper.GetPrinterConfigPath(((Application)SourceDocument.Application).AcadApplication));
                     originMdbDir = Path.Combine(printerConfigPath.Parent.FullName, "support", "user");
                 }
 

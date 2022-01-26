@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using Autodesk.AutoCAD.Interop;
 using coolOrange.AutoCADElectrical.Helpers;
 using log4net;
 using Microsoft.Win32;
@@ -16,7 +15,7 @@ namespace coolOrange.AutoCADElectrical
     {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public AcadApplication AcadApplication { get; set; }
+        public dynamic AcadApplication { get; set; }
 
         private string AcadProgId { get; set; }
         private string AcadExePath { get; set; }
@@ -75,14 +74,14 @@ namespace coolOrange.AutoCADElectrical
                 {
                     try
                     {
-                        AcadApplication = (AcadApplication)Marshal.GetActiveObject(AcadProgId);
+                        AcadApplication = Marshal.GetActiveObject(AcadProgId);
                     }
                     catch
                     {
                         System.Windows.Forms.Application.DoEvents();
                     }
                 }
-                AcadApplication.WaitUntilReady(Properties.Settings.Default.StartWaitTime);
+                AcadAppHelper.WaitUntilReady(AcadApplication,Properties.Settings.Default.StartWaitTime);
                 Log.Info("Successfully started AutoCAD Electrical!");
             }
             catch (Exception ex)
@@ -145,7 +144,7 @@ namespace coolOrange.AutoCADElectrical
                 if (!IsSupportedFile(openSettings.File))
                     throw new ApplicationException($"Files with extension {openSettings.File.Extension} are not supported!");
 
-                AcadApplication.WaitUntilReady(Properties.Settings.Default.OpenWaitTime);
+                AcadAppHelper.WaitUntilReady(AcadApplication, Properties.Settings.Default.OpenWaitTime);
                 if (AcadApplication.Documents.Count == 0)
                 {
                     Log.Debug("Adding empty document, to have at least on document to send commands ...");

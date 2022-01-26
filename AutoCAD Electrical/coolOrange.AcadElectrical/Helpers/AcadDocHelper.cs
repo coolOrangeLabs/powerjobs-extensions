@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading;
-using Autodesk.AutoCAD.Interop;
 using log4net;
 
 namespace coolOrange.AutoCADElectrical.Helpers
@@ -10,7 +9,7 @@ namespace coolOrange.AutoCADElectrical.Helpers
     {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static void SendCommandWait(this AcadDocument acadDocument, string cmd)
+        public static void SendCommandWait(dynamic acadDocument, string cmd)
         {
             Log.Debug($"Sending command '{cmd}' ... (Timeout {Properties.Settings.Default.AcadCmdTimeout}ms) ");
             var duration = 0;
