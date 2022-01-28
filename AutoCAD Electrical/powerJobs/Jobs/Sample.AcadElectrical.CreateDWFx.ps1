@@ -38,8 +38,7 @@ $attachDWFXToVaultFile = $true
 x should be stored (e.g. $/Designs/DWFX), or leave the setting empty to store the DWFX next to the main file
 $dwfxVaultFolder = ""
 
-# Specify a network share into which the DWFX should be copied (e.g. \\SERVERNAME\Share\Public\DWF
-xs\)
+# Specify a network share into which the DWFX should be copied (e.g. \\SERVERNAME\Share\Public\DWFx\)
 $dwfxNetworkFolder = ""
 
 # To enable faster opening of released Inventor drawings without downloading and opening their model files set $true, otherwise $false
@@ -78,7 +77,7 @@ $openResult = Open-Document -LocalFile $file.LocalPath
 if($openResult) {
     $localDWFXfileLocation = "$workingDirectory\$dwfxFileName"    
     $configFile = "$($env:POWERJOBS_MODULESDIR)Export\PDF_AcadElectrical.ini"    
-    $exportResult = Export-Document -Format 'DWFx' -To $localDWFfileLocation -Options $configFile
+    $exportResult = Export-Document -Format 'DWFx' -To $localDWFXfileLocation -Options $configFile
 
     if ($exportResult) {
         if ($addDWFXToVault) {
@@ -93,11 +92,6 @@ if($openResult) {
             Write-Host "Copy DWFx '$dwfxFileName' to network folder: $dwfxNetworkFolder"
             Copy-Item -Path $localDWFXfileLocation -Destination $dwfxNetworkFolder -ErrorAction Continue -ErrorVariable "ErrorCopyDWFXToNetworkFolder"
         }
-    }
-    $closeResult = Close-Document      
-    if($exportResult) {       
-        $DWFfile = Add-VaultFile -From $localDWFXfileLocation -To $vaultDWFfileLocation -FileClassification DesignVisualization -Hidden $hideDWF
-        $file = Update-VaultFile -File $file._FullPath -AddAttachments @($DWFfile._FullPath)
     }
     $closeResult = Close-Document
 }
