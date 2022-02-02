@@ -70,7 +70,7 @@ namespace coolOrange.AutoCADElectrical.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("%USERPROFILE%\\Documents\\Acade 2020\\AeData\\Proj\\Demo\\wddemo.wdp")]
+        [global::System.Configuration.DefaultSettingValueAttribute("%USERPROFILE%\\Documents\\Acade {0}\\AeData\\Proj\\Demo\\wddemo.wdp")]
         public string DummyAcadElectricalProjectFile {
             get {
                 return ((string)(this["DummyAcadElectricalProjectFile"]));

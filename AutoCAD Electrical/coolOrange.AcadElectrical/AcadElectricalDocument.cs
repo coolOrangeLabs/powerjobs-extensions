@@ -26,8 +26,9 @@ namespace coolOrange.AutoCADElectrical
             {
                 Log.Info("Deactivate current project by activating dummy project ...");
                 var acadActiveDocument = AcadAppHelper.GetActiveDocument(((Application)Application).AcadApplication);
-
-                var wdpFilename = Environment.ExpandEnvironmentVariables(Properties.Settings.Default.DummyAcadElectricalProjectFile);
+                var indexOf = acadActiveDocument.Application.Caption.ToString().Indexof(" 2");
+                var version = acadActiveDocument.Application.Caption.ToString().SubString(indexOf + 1, 4);
+                var wdpFilename = string.Format(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.DummyAcadElectricalProjectFile), version);
                 if (!File.Exists(wdpFilename))
                 {
                     Log.Error($"Dummy project '{wdpFilename}' doesn't exist!");
