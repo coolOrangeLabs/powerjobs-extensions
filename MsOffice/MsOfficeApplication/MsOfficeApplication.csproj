@@ -15,7 +15,7 @@
     <Minor>0</Minor>
     <Build>0</Build>
     <Revision>0</Revision>
-    <VersionAssembly>$(Major).$(Minor).$(Build).$(Revision)</VersionAssembly>
+    <VersionAssembly>$(Major).$(Minor).$(Revision).$(Build)</VersionAssembly>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
