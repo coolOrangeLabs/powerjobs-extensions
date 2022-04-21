@@ -10,12 +10,7 @@
     <RootNamespace>coolOrange.MsOffice</RootNamespace>
     <AssemblyName>coolOrange.MsOffice</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Major>1</Major>
-    <Minor>0</Minor>
-    <Build>0</Build>
-    <Revision>0</Revision>
-    <VersionAssembly>$(Major).$(Minor).$(Revision).$(Build)</VersionAssembly>
+    <FileAlignment>512</FileAlignment>    
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

@@ -3,10 +3,10 @@
 	<?define UpgradeCode="4B434FAB-D93E-45DB-A909-7E6F01C33E71"?>
 	<?define WikiLink="https://github.com/coolOrangeLabs/powerjobs-extensions"?>
 	<?define IconName="Resources\coolOrange.ico"?>
-	<?define PVersion="$(var.Major).$(var.Minor).$(var.Revision).$(var.Build)"?>
+	<?define PVersion="$(VersionAssembly)"?>
   <?define VaultYear="Vault 2022"?>
   <?define PName="powerJobs MsOffice Plugin"?>
-  <?define PShortVersion="$(var.Major).$(var.Minor)"?>
+  <?define PShortVersion="$(VersionAssembly)"?>
   <?define CompanyDirectory="coolOrange"?>
 	
 	<?if $(var.Platform) = x64 ?>

@@ -2,11 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <EnableProjectHarvesting>True</EnableProjectHarvesting>
-    <Major>1</Major>
-    <Minor>0</Minor>
-    <Build>0</Build>
-    <Revision>0</Revision>
-    <Name>powerJobs.MsOfficePlugin.Setup</Name>
+	  <Name>powerJobs.MsOfficePlugin.Setup</Name>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,19 +10,14 @@
     <ProductVersion>3.5</ProductVersion>
     <ProjectGuid>{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>powerJobs.MsOfficePlugin.Setup_$(Major).$(Minor).$(Revision).$(Build)_$(Platform)</OutputName>
+    <OutputName>powerJobs.MsOfficePlugin.Setup_$(VersionAssembly)_$(Platform)</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <DefineConstants>Debug;HarvestPowerJobsPlugin=..\powerJobs;</DefineConstants>
-    <CompilerAdditionalOptions>
-			-dMajor=$(Major)
-			-dMinor=$(Minor)
-			-dBuild=$(Build)
-			-dRevision=$(Revision)
-		</CompilerAdditionalOptions>
+    <CompilerAdditionalOptions>-dVersionAssembly=$(VersionAssembly)</CompilerAdditionalOptions>
     <OutputPath>bin\Debug\</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
@@ -34,10 +25,8 @@
     <OutputPath>bin\Release\</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
     <CompilerAdditionalOptions>
-			-dMajor=$(Major)
-			-dMinor=$(Minor)
-			-dBuild=$(Build)
-			-dRevision=$(Revision)</CompilerAdditionalOptions>
+		-dVersionAssembly=$(VersionAssembly)
+	</CompilerAdditionalOptions>
     <DefineConstants>HarvestPowerJobsPlugin=..\powerJobs;</DefineConstants>
     <WixVariables>
     </WixVariables>
