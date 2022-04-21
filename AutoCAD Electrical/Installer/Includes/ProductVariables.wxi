@@ -3,10 +3,10 @@
 	<?define UpgradeCode="28966944-12C3-4943-B358-64E1EFF7F4DE"?>
 	<?define WikiLink="https://github.com/coolOrangeLabs/powerjobs-extensions"?>
 	<?define IconName="Resources\coolOrange.ico"?>
-	<?define PVersion="$(var.Major).$(var.Minor).$(var.Revision).$(var.Build)"?>
+	<?define PVersion="$(var.VersionAssembly)"?>
   <?define VaultYear="Vault 2020"?>
   <?define PName="powerJobs AutoCAD Electrical Plugin"?>
-  <?define PShortVersion="$(var.Major).$(var.Minor)"?>
+  <?define PShortVersion="$(var.VersionAssembly)"?>
   <?define CompanyDirectory="coolOrange"?>
 	
 	<?if $(var.Platform) = x64 ?>
