@@ -9,43 +9,96 @@ using powerJobs.Common.Applications;
 namespace coolOrange.AutoCADElectrical
 {
     public class AcadElectricalDocument : DocumentBase
-	{
+    {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         public string AcadEProjectFilename { get; set; }
 
         public AcadElectricalDocument(IApplication application, OpenDocumentSettings openSettings)
-			: base(application, openSettings)
+            : base(application, openSettings)
         {
-            AcadEProjectFilename = openSettings.File.FullName;
+            var finished = false;
+            TestSingleton.Instance.Collection.Add(() =>
+            {
+                //open in the application the file with the passed settings
+                try
+                {
+                    if (application == null)
+                        throw new ApplicationException("No AutoCAD Electrical application available");
+
+                    dynamic acad = ((Application) application).AcadApplication;
+                    dynamic documents = acad.Documents;
+                    if (documents.Count == 0)
+                    {
+                        Log.Debug("Adding empty document, to have at least on document to send commands ...");
+                        documents.Add();
+                    }
+
+                    AcadEProjectFilename = openSettings.File.FullName;
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"Failed to open file: {ex.Message}", ex);
+                    throw;
+                }
+                finally
+                {
+                    finished = true;
+                }
+            });
+            TestSingleton.Instance.Run();
+            while (!finished)
+            {
+                Thread.Sleep(1000);
+            }
         }
 
+
+        
         protected override void Close_Internal(bool save = false)
         {
-            try
+            var finished = false;
+            TestSingleton.Instance.Collection.Add(() =>
             {
-                Log.Info("Deactivate current project by activating dummy project ...");
-                var acadActiveDocument = AcadAppHelper.GetActiveDocument(((Application)Application).AcadApplication);
-                var indexOf = acadActiveDocument.Application.Caption.ToString().Indexof(" 2");
-                var version = acadActiveDocument.Application.Caption.ToString().SubString(indexOf + 1, 4);
-                var wdpFilename = string.Format(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.DummyAcadElectricalProjectFile), version);
-                if (!File.Exists(wdpFilename))
+                try
                 {
-                    Log.Error($"Dummy project '{wdpFilename}' doesn't exist!");
-                    return;
+                    Log.Info("Deactivate current project by activating dummy project ...");
+                    dynamic acad = ((Application) Application).AcadApplication;
+                    dynamic acadActiveDocument = acad.ActiveDocument;
+
+                    var indexOf = acad.Caption.IndexOf(" 2");
+                    var version = acad.Caption.Substring(indexOf + 1, 4);
+                    var wdpFilename =
+                        string.Format(
+                            Environment.ExpandEnvironmentVariables(Properties.Settings.Default
+                                .DummyAcadElectricalProjectFile), version);
+                    if (!File.Exists(wdpFilename))
+                    {
+                        Log.Error($"Dummy project '{wdpFilename}' doesn't exist!");
+                        return;
+                    }
+
+                    wdpFilename = Environment.ExpandEnvironmentVariables(wdpFilename).Replace('\\', '/');
+                    Log.Info($"Activating project {wdpFilename}");
+                    AcadDocHelper.SendCommandWait(acadActiveDocument,
+                        $"(c:wd_makeproj_current \"{wdpFilename}\"){System.Environment.NewLine}");
+
+                    AcadEProjectFilename = null;
+                    Log.Info("Successfully deactivated current project.");
                 }
-
-                wdpFilename = Environment.ExpandEnvironmentVariables(wdpFilename).Replace('\\', '/');
-                Log.Info($"Activating project {wdpFilename}");
-                AcadDocHelper.SendCommandWait(acadActiveDocument,$"(c:wd_makeproj_current \"{wdpFilename}\"){System.Environment.NewLine}");
-
-                AcadEProjectFilename = null;
-                AcadAppHelper.WaitUntilReady(((Application)Application).AcadApplication,Properties.Settings.Default.MdbCreationWaitTime);
-                Log.Info("Successfully deactivated current project.");
-            }
-            catch (Exception ex)
+                catch (Exception ex)
+                {
+                    Log.Error($"Error deactivating current project: {ex.Message}", ex);
+                }
+                finally
+                {
+                    finished = true;
+                }
+            });
+            TestSingleton.Instance.Run();
+            while (!finished)
             {
-                Log.Error($"Error deactivating current project: {ex.Message}", ex);
+                Thread.Sleep(1000);
             }
         }
     }

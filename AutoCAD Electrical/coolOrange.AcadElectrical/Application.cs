@@ -1,17 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using coolOrange.AutoCADElectrical.Helpers;
+using System.Threading;
 using log4net;
 using Microsoft.Win32;
 using powerJobs.Common.Applications;
 
 namespace coolOrange.AutoCADElectrical
 {
-    public class Application : ApplicationBase
+    #region IMessageFilter
+
+    // For more information on IMessageFilter:
+    // http://msdn.microsoft.com/en-us/library/ms693740(VS.85).aspx
+
+    [ComImport,
+     InterfaceType(ComInterfaceType.InterfaceIsIUnknown),
+     Guid("00000016-0000-0000-C000-000000000046")]
+    public interface IMessageFilter
+    {
+        [PreserveSig]
+        int HandleInComingCall(
+            int dwCallType, IntPtr hTaskCaller,
+            int dwTickCount, IntPtr lpInterfaceInfo
+        );
+        [PreserveSig]
+        int RetryRejectedCall(
+            IntPtr hTaskCallee, int dwTickCount, int dwRejectType
+        );
+        [PreserveSig]
+        int MessagePending(
+            IntPtr hTaskCallee, int dwTickCount, int dwPendingType
+        );
+    }
+
+    #endregion
+    public class Application : ApplicationBase, IMessageFilter
     {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -20,6 +45,9 @@ namespace coolOrange.AutoCADElectrical
         private string AcadProgId { get; set; }
         private string AcadExePath { get; set; }
 
+        [DllImport("ole32.dll")]
+        static extern int CoRegisterMessageFilter(IMessageFilter lpMessageFilter, out IMessageFilter lplpMessageFilter);
+
         public Application()
         {
             var logConfigFile = new FileInfo(@"C:\Program Files\coolOrange\powerJobs Processor\powerJobs Processor.log4net");
@@ -27,11 +55,19 @@ namespace coolOrange.AutoCADElectrical
                 logConfigFile = new FileInfo(@"C:\Program Files\coolOrange\powerJobs\powerJobs.log4net");
             if (logConfigFile.Exists)
                 log4net.Config.XmlConfigurator.Configure(logConfigFile);
-
             Exporter = new AcadElectricalExporter(this);
+
         }
 
         public override string Name => "AutoCAD Electrical";
+
+        public void RegisterMessageFilter()
+        {
+            IMessageFilter oldFilter = null;
+            var result = CoRegisterMessageFilter(this, out oldFilter);
+            if (result != 0)
+                throw new Exception("Registration of MessageFilter failed, approve the registration is made in a STA Thread");
+        }
 
         public override bool IsRunning
         {
@@ -54,55 +90,79 @@ namespace coolOrange.AutoCADElectrical
         }
 
         public override HashSet<string> SupportedFileTypes => new HashSet<string>() { ".wdp" };
-
+        
         public override void Start()
         {
-            // start the application and prepare it
-            try
+            bool finished = false;
+            TestSingleton.Instance.Collection.Add(() =>
             {
-                Log.Info("Starting AutoCAD Electrical ...");
-                var startParams = Properties.Settings.Default.AcadStartParameters;
-                var psi = new ProcessStartInfo(AcadExePath, startParams)
+                // start the application and prepare it
+                try
                 {
-                    WorkingDirectory = @"C:\temp"
-                };
-                var acadProcess = Process.Start(psi);
-                acadProcess.WaitForInputIdle();
+                    //Log.Info("Starting AutoCAD Electrical ...");
+                    //var startParams = Properties.Settings.Default.AcadStartParameters;
+                    //var psi = new ProcessStartInfo(AcadExePath, startParams)
+                    //{
+                    //    WorkingDirectory = @"C:\temp"
+                    //};
+                    //var acadProcess = Process.Start(psi);
+                    //acadProcess.WaitForInputIdle();
 
-                // TODO - use ROT to make sure using correct AutoCAD instance in case there are more than one (https://adndevblog.typepad.com/autocad/2013/12/accessing-com-applications-from-the-running-object-table.html)
-                while (AcadApplication == null)
-                {
+                    // TODO - use ROT to make sure using correct AutoCAD instance in case there are more than one (https://adndevblog.typepad.com/autocad/2013/12/accessing-com-applications-from-the-running-object-table.html)
                     try
                     {
                         AcadApplication = Marshal.GetActiveObject(AcadProgId);
+                        RegisterMessageFilter();
+                        Console.WriteLine("Get object of type \"" + AcadProgId + "\"");
                     }
                     catch
                     {
-                        System.Windows.Forms.Application.DoEvents();
+
+                        try
+                        {
+                            Type acType = Type.GetTypeFromProgID(AcadProgId);
+                            AcadApplication = Activator.CreateInstance(acType, true);
+                            RegisterMessageFilter();
+                            Console.WriteLine("create object of type \"" + AcadProgId + "\"");
+                        }
+                        catch
+                        {
+                            Log.Error("Cannot create object of type \"" + AcadProgId + "\"");
+                        }
                     }
+
+                    Log.Info("Successfully started AutoCAD Electrical!");
                 }
-                AcadAppHelper.WaitUntilReady(AcadApplication,Properties.Settings.Default.StartWaitTime);
-                Log.Info("Successfully started AutoCAD Electrical!");
-            }
-            catch (Exception ex)
+                catch (Exception ex)
+                {
+                    Log.Error($"Failed to start AutoCAD Electrical: {ex.Message}", ex);
+                    throw;
+                }
+                finally
+                {
+                    finished = true;
+                }
+            });
+            TestSingleton.Instance.Run();
+            while (!finished)
             {
-                Log.Error($"Failed to start AutoCAD Electrical: {ex.Message}", ex);
-                throw;
+                Thread.Sleep(1000);
             }
         }
 
         protected override bool IsInstalled_Internal()
         {
+            bool result;
             try
             {
                 if (!string.IsNullOrEmpty(AcadExePath))
-                    return true;
+                   result = true;
 
                 Log.Info($"Checking if AutoCAD Electrical is installed ...");
                 var curVer = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Autodesk\AutoCAD", "CurVer", null);
                 if (curVer != null)
                 {
-                    var curNum = curVer.ToString().Substring(1,2);
+                    var curNum = curVer.ToString().Substring(1, 2);
                     AcadProgId = $"AutoCAD.Application.{curNum}";
                     using (var acadProductsKey = Registry.LocalMachine.OpenSubKey($@"SOFTWARE\Autodesk\AutoCAD\{curVer}"))
                     {
@@ -115,6 +175,7 @@ namespace coolOrange.AutoCADElectrical
                                 {
                                     Log.Info($"AutoCAD Electrical found: {acedProdKey.GetValue("ProductNameGlob")}");
                                     AcadExePath = $"{acedProdKey.GetValue("AcadLocation")}\\acad.exe";
+                                    break;
                                 }
                                 acedProdKey.Close();
                             }
@@ -124,59 +185,74 @@ namespace coolOrange.AutoCADElectrical
                 }
                 if (string.IsNullOrEmpty(AcadExePath))
                     Log.Error("No AutoCAD Electrical found on this machine!");
-                return !string.IsNullOrEmpty(AcadExePath);
+                result =  !string.IsNullOrEmpty(AcadExePath);
             }
             catch (Exception ex)
             {
                 Log.Error($"Failed to check if AutoCAD Electrical is installed: {ex.Message}", ex);
-                return false;
+                result = false;
             }
+            return result;
         }
-
         protected override IDocument OpenDocument_Internal(OpenDocumentSettings openSettings)
         {
-            //open in the application the file with the passed settings
-            try
-            {
-                if (AcadApplication == null)
-                    throw new ApplicationException("No AutoCAD Electrical application available");
 
-                if (!IsSupportedFile(openSettings.File))
-                    throw new ApplicationException($"Files with extension {openSettings.File.Extension} are not supported!");
-
-                AcadAppHelper.WaitUntilReady(AcadApplication, Properties.Settings.Default.OpenWaitTime);
-                if (AcadApplication.Documents.Count == 0)
-                {
-                    Log.Debug("Adding empty document, to have at least on document to send commands ...");
-                    AcadApplication.Documents.Add();
-                }
-                return new AcadElectricalDocument(this, openSettings);
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"Failed to open file: {ex.Message}", ex);
-                throw;
-            }
+            if (!IsSupportedFile(openSettings.File))
+                throw new ApplicationException($"Files with extension {openSettings.File.Extension} are not supported!");
+            return new AcadElectricalDocument(this, openSettings);
         }
-
+        
         protected override void Stop_Internal()
         {
-            if (IsRunning)
+            TestSingleton.Instance.Collection.Add(() =>
             {
-                try
+                if (IsRunning)
                 {
-                    Log.Info("Closing AutoCAD Electrical Application ...");
-                    if (AcadApplication.ActiveDocument != null)
-                        AcadApplication.ActiveDocument.Close();
-                    AcadApplication.Quit();
-                    AcadApplication = null;
-                    Log.Info("Successfully closed AutoCAD Electrical Application!");
+                    try
+                    {
+                        Log.Info("Closing AutoCAD Electrical Application ...");
+                        if (AcadApplication.ActiveDocument != null)
+                            AcadApplication.ActiveDocument.Close();
+                        AcadApplication.Quit();
+                        AcadApplication = null;
+                        Log.Info("Successfully closed AutoCAD Electrical Application!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Failed to close AutoCAD Electrical Application: {ex.Message}", ex);
+                    }
+                    finally
+                    {
+                        IMessageFilter oldFilter = null;
+                        CoRegisterMessageFilter(null, out oldFilter);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Log.Error($"Failed to close AutoCAD Electrical Application: {ex.Message}", ex);
-                }
+            });
+            TestSingleton.Instance.Run();
+            while (TestSingleton.Instance.Collection.Count == 0)
+            {
+                Thread.Sleep(1000);
             }
         }
+
+        #region IMessageFilter
+
+
+        int IMessageFilter.HandleInComingCall(int dwCallType, IntPtr hTaskCaller, int dwTickCount, IntPtr lpInterfaceInfo)
+        {
+            return 0; // SERVERCALL_ISHANDLED
+        }
+
+        int IMessageFilter.RetryRejectedCall(IntPtr hTaskCallee, int dwTickCount, int dwRejectType)
+        {
+            return 99;
+        }
+
+        int IMessageFilter.MessagePending(IntPtr hTaskCallee, int dwTickCount, int dwPendingType)
+        {
+            return 1; // PENDINGMSG_WAITNOPROCESS
+        }
+
+        #endregion
     }
 }

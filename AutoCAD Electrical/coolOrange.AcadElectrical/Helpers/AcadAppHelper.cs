@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Dynamic;
 using System.Reflection;
-using System.Threading;
 using log4net;
 
 namespace coolOrange.AutoCADElectrical.Helpers
@@ -9,76 +7,38 @@ namespace coolOrange.AutoCADElectrical.Helpers
     public static class AcadAppHelper
     {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
-        public static void WaitUntilReady(dynamic acadApplication, int additionalWaitTime = 0)
-        {
-            Log.Debug($"Wait for AutoCAD to be ready for {Properties.Settings.Default.AcadCmdTimeout}ms");
-            var duration = 0;
-            while (duration < Properties.Settings.Default.AcadCmdTimeout)
-            {
-                try
-                {
-                    var acadState = acadApplication.GetAcadState();
-                    if (acadState.IsQuiescent) break;
-                }
-                catch (Exception ex)
-                {
-                    Log.Warn($"WaitUntilReady(): AutoCAD not ready yet: {ex.Message}. Waiting ...");
-                }
-                duration += 1000;
-                Thread.Sleep(1000);
-            }
-            if (additionalWaitTime > 0)
-                Thread.Sleep(additionalWaitTime); // wait for power... splash
-            Log.Debug("AutoCAD ready!");
-        }
-
+        
         public static dynamic GetActiveDocument(dynamic acadApplication)
         {
-            Log.Debug($"Getting active document ... (Timeout {Properties.Settings.Default.AcadCmdTimeout}ms) ");
-            var duration = 0;
+            Log.Debug($"Getting active document) ");
             dynamic activeDocument = null;
-            while (duration < Properties.Settings.Default.AcadCmdTimeout)
+            try
             {
-                try
-                {
-                    activeDocument = acadApplication.ActiveDocument;
-                    if (activeDocument != null) break;
-                }
-                catch (Exception ex)
-                {
-                    Log.Warn($"GetActiveDocument(): AutoCAD not ready yet: {ex.Message}. Waiting ...");
-                }
-                duration += 1000;
-                Thread.Sleep(1000);
+                activeDocument = acadApplication.ActiveDocument;
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"GetActiveDocument(): {ex.Message}.");
             }
             if (activeDocument == null)
-                throw new ApplicationException($"Failed to get active document (Timeout)!");
+                throw new ApplicationException($"Failed to get active document!");
             Log.Debug("Successfully got active document");
             return activeDocument;
         }
-
         public static string GetPrinterConfigPath(dynamic acadApplication)
         {
-            Log.Debug($"Getting printer config path from preferences ... (Timeout {Properties.Settings.Default.AcadCmdTimeout}ms) ");
-            var duration = 0;
+            Log.Debug($"Getting printer config path from preferences ... ");
             string printerConfigPath = null;
-            while (duration < Properties.Settings.Default.AcadCmdTimeout)
+            try
             {
-                try
-                {
-                    printerConfigPath = acadApplication.Preferences.Files.PrinterConfigPath;
-                    if (printerConfigPath != null) break;
-                }
-                catch (Exception ex)
-                {
-                    Log.Warn($"GetPrinterConfigPath(): AutoCAD not ready yet: {ex.Message}. Waiting ...");
-                }
-                duration += 1000;
-                Thread.Sleep(1000);
+                printerConfigPath = acadApplication.Preferences.Files.PrinterConfigPath;
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"GetPrinterConfigPath(): {ex.Message}.");
             }
             if (printerConfigPath == null)
-                throw new ApplicationException($"Failed to get printer config path (Timeout)!");
+                throw new ApplicationException($"Failed to get printer config path!");
             Log.Debug("Successfully got printer config path");
             return printerConfigPath;
         }

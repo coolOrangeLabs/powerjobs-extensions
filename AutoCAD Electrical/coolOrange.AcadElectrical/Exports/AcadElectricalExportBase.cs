@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using coolOrange.AutoCADElectrical.Helpers;
 using IniParser;
 using IniParser.Model;
@@ -24,31 +25,44 @@ namespace coolOrange.AutoCADElectrical.Exports
 
         public override void Execute()
         {
-            try
+            bool finished = false;
+            TestSingleton.Instance.Collection.Add(() =>
             {
-                // Check if config file is specified and exists
-                if (!Settings.Options.ContainsKey("ConfigFile"))
-                    throw new ApplicationException("Option 'ConfigFile' is not specified!");
+                try
+                {
+                    // Check if config file is specified and exists
+                    if (!Settings.Options.ContainsKey("ConfigFile"))
+                        throw new ApplicationException("Option 'ConfigFile' is not specified!");
 
-                var configFile = Settings.Options["ConfigFile"] as IFileInfo;
-                if (configFile == null || !configFile.Exists) 
-                    throw new ApplicationException($"Configuration file '{configFile}' does not exist!");
+                    var configFile = Settings.Options["ConfigFile"] as IFileInfo;
+                    if (configFile == null || !configFile.Exists)
+                        throw new ApplicationException($"Configuration file '{configFile}' does not exist!");
 
-                // activate AutoCAD electrical project file
-                AcadActiveDocument = AcadAppHelper.GetActiveDocument(((Application)SourceDocument.Application).AcadApplication);
-                ActivateProjectFile(SourceDocument.OpenSettings.File);
+                    // activate AutoCAD electrical project file
+                    dynamic acad = ((Application) SourceDocument.Application).AcadApplication;
+                    AcadActiveDocument = acad.ActiveDocument;
+                    ActivateProjectFile(SourceDocument.OpenSettings.File);
 
-                // creating DSD file
-                var dsdFilename = CreateDsdFile(SourceDocument.OpenSettings.File, configFile);
+                    // creating DSD file
+                    var dsdFilename = CreateDsdFile(SourceDocument.OpenSettings.File, configFile);
 
-                // publishing PDF file
-                AcadAppHelper.WaitUntilReady(((Application)SourceDocument.Application).AcadApplication, Properties.Settings.Default.MdbCreationWaitTime);
-                PublishFile(dsdFilename);
-            }
-            catch (Exception ex)
+                    // publishing PDF file
+                    PublishFile(dsdFilename);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error($"Failed to export : {ex.Message}", ex);
+                    throw;
+                }
+                finally
+                {
+                    finished = true;
+                }
+            });
+            TestSingleton.Instance.Run();
+            while (!finished)
             {
-                Log.Error($"Failed to export : {ex.Message}", ex);
-                throw;
+                Thread.Sleep(1000);
             }
         }
 
@@ -79,7 +93,7 @@ namespace coolOrange.AutoCADElectrical.Exports
             {
                 // prepare for publish command
                 Log.Debug("Setting variable BACKGROUNDPLOT = 0 ...");
-                AcadDocHelper.SendCommandWait(AcadActiveDocument,"_backgroundplot 0 ");
+                AcadDocHelper.SendCommandWait(AcadActiveDocument, "_backgroundplot 0 ");
 
                 Log.Debug("Setting variable FILEDIA = 0 ...");
                 AcadDocHelper.SendCommandWait(AcadActiveDocument, "_filedia 0 ");
