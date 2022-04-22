@@ -39,7 +39,7 @@ The powerJobs extension will work only with powerJobs **2022 streams** (equal or
 - In Visual Studio right-click on References and click “Add References”.
 - Search for the assembly powerJobs.Common” in Assemblies-tab and add it to your project.
 [see here](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/_images/vs_add_reference.png)
-- Replace the UpgradeCode with new GUID found in [ProductVariables.wxi](https://github.com/coolOrangeLabs/powerjobs-extensions/blob/0973f254b52c9e85c144df1a9ffe39e794c08aa0/MsOffice/Installer/Includes/ProductVariables.wxi#L3)
+- Replace the UpgradeCode with existing GUID found in [ProductVariables.wxi](https://github.com/coolOrangeLabs/powerjobs-extensions/blob/0973f254b52c9e85c144df1a9ffe39e794c08aa0/MsOffice/Installer/Includes/ProductVariables.wxi#L3)
 - Build the solution
 
 If the build went through and you don't have any errors, then you can use the installer 'powerJobs.MSOfficePlugin.Setup_1.0.0.0_x64.msi'  which you will find in the VS Installer project's output folder.
