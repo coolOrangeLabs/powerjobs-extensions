@@ -14,6 +14,7 @@ This is a custom powerJobs application which supports exporting DWFx/PDFs from A
 Following applications are required for running this job:
 - AutoCAD Electrical
 - powerJobs 2022 stream (v22.0.20 and above)
+
 #### Installation
 Use the installer found in the release page and follow the instructions. After the installation is complete, you will find 
 - New jobs "Sample.CreateDWFx.ElectricalProjects.ps1" and "Sample.CreatePDF.ElectricalProjects.ps1" added to the Jobs folder. 
@@ -26,6 +27,10 @@ Rename the installed sample jobs so that your job can be identified as custom jo
 Depending on the needs, the job can be triggered to run during lifecycle state change or in some other ways.
 Further information on how to setup and run the job on lifecycle state change can be found on [powerJob's Getting Started documentation](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/getting_started.html#how-to-embed-the-job-in-a-status-change)
 
+**_NOTE:_**  
+- It is recommended that AutoCAD Electrical was the last AutoCAD flavor that was running on the server machine. 
+- Sometimes the AutoCAD application might stay visible which should not hinder the job execution. 
+
 ### Upgrade the solution
 The custom application provided here will work with powerJobs **2022 streams** (equal or greater than 22.0.20). For newer powerJobs' streams you will need to build and compile this solution. Follow the steps below to upgrade the powerJobs extension to support newer powerJobs version.
 #### Prerequisite
@@ -37,7 +42,7 @@ The custom application provided here will work with powerJobs **2022 streams** (
 - In Visual Studio right-click on References and click “Add References”.
 - Search for the assembly powerJobs.Common” in Assemblies-tab and add it to your project.
 [see here](https://doc.coolorange.com/projects/coolorange-powerjobsprocessordocs/en/stable/_images/vs_add_reference.png)
-- Replace the UpgradeCode with new GUID found in [ProductVariables.wxi](https://github.com/coolOrangeLabs/powerjobs-extensions/blob/5e620d5beabb785b12b513263fa3934d2e2c27ce/AutoCAD%20Electrical/Installer/Includes/ProductVariables.wxi#L3)
+- Replace the UpgradeCode with existing GUID found in [ProductVariables.wxi](https://github.com/coolOrangeLabs/powerjobs-extensions/blob/5e620d5beabb785b12b513263fa3934d2e2c27ce/AutoCAD%20Electrical/Installer/Includes/ProductVariables.wxi#L3)
 - Build the solution
 
 If the build went through and you don't have any errors, then you can use the installer 'powerJobs.AcadElectricalPlugin.Setup_1.0.0.0_x64.msi'  which you will find in the VS Installer project's output folder.
