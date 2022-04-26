@@ -4,17 +4,16 @@ using System.Threading;
 
 namespace coolOrange.AutoCADElectrical
 {
-    sealed class TestSingleton
+    sealed class Proxy
     {
         private Thread _t;
 
-
-        private void TestSingleTon()
+        private Proxy()
         {
         }
 
         public BlockingCollection<Action> Collection { get; } = new BlockingCollection<Action>();
-        public static TestSingleton Instance { get { return Nested.instance; } }
+        public static Proxy Instance { get { return Nested.instance; } }
 
         private class Nested
         {
@@ -24,7 +23,7 @@ namespace coolOrange.AutoCADElectrical
             {
             }
 
-            internal static readonly TestSingleton instance = new TestSingleton();
+            internal static readonly Proxy instance = new Proxy();
         }
 
         public void Run()

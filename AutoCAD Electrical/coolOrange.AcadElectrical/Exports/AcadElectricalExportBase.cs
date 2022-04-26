@@ -26,7 +26,7 @@ namespace coolOrange.AutoCADElectrical.Exports
         public override void Execute()
         {
             bool finished = false;
-            TestSingleton.Instance.Collection.Add(() =>
+            Proxy.Instance.Collection.Add(() =>
             {
                 try
                 {
@@ -59,7 +59,7 @@ namespace coolOrange.AutoCADElectrical.Exports
                     finished = true;
                 }
             });
-            TestSingleton.Instance.Run();
+            Proxy.Instance.Run();
             while (!finished)
             {
                 Thread.Sleep(1000);

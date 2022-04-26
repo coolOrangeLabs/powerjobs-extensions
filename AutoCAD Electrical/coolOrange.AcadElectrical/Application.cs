@@ -40,7 +40,7 @@ namespace coolOrange.AutoCADElectrical
     {
         static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-        public dynamic AcadApplication { get; set; }
+        internal dynamic AcadApplication { get; set; }
 
         private string AcadProgId { get; set; }
         private string AcadExePath { get; set; }
@@ -94,7 +94,7 @@ namespace coolOrange.AutoCADElectrical
         public override void Start()
         {
             bool finished = false;
-            TestSingleton.Instance.Collection.Add(() =>
+            Proxy.Instance.Collection.Add(() =>
             {
                 // start the application and prepare it
                 try
@@ -143,7 +143,7 @@ namespace coolOrange.AutoCADElectrical
                     finished = true;
                 }
             });
-            TestSingleton.Instance.Run();
+            Proxy.Instance.Run();
             while (!finished)
             {
                 Thread.Sleep(1000);
@@ -204,7 +204,7 @@ namespace coolOrange.AutoCADElectrical
         
         protected override void Stop_Internal()
         {
-            TestSingleton.Instance.Collection.Add(() =>
+            Proxy.Instance.Collection.Add(() =>
             {
                 if (IsRunning)
                 {
@@ -228,8 +228,8 @@ namespace coolOrange.AutoCADElectrical
                     }
                 }
             });
-            TestSingleton.Instance.Run();
-            while (TestSingleton.Instance.Collection.Count == 0)
+            Proxy.Instance.Run();
+            while (Proxy.Instance.Collection.Count == 0)
             {
                 Thread.Sleep(1000);
             }

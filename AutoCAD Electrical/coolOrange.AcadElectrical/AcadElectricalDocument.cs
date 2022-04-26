@@ -18,7 +18,7 @@ namespace coolOrange.AutoCADElectrical
             : base(application, openSettings)
         {
             var finished = false;
-            TestSingleton.Instance.Collection.Add(() =>
+            Proxy.Instance.Collection.Add(() =>
             {
                 //open in the application the file with the passed settings
                 try
@@ -46,7 +46,7 @@ namespace coolOrange.AutoCADElectrical
                     finished = true;
                 }
             });
-            TestSingleton.Instance.Run();
+            Proxy.Instance.Run();
             while (!finished)
             {
                 Thread.Sleep(1000);
@@ -58,7 +58,7 @@ namespace coolOrange.AutoCADElectrical
         protected override void Close_Internal(bool save = false)
         {
             var finished = false;
-            TestSingleton.Instance.Collection.Add(() =>
+            Proxy.Instance.Collection.Add(() =>
             {
                 try
                 {
@@ -95,7 +95,7 @@ namespace coolOrange.AutoCADElectrical
                     finished = true;
                 }
             });
-            TestSingleton.Instance.Run();
+            Proxy.Instance.Run();
             while (!finished)
             {
                 Thread.Sleep(1000);
