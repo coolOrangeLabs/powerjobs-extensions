@@ -96,39 +96,22 @@ namespace coolOrange.AutoCADElectrical
             bool finished = false;
             Proxy.Instance.Collection.Add(() =>
             {
-                // start the application and prepare it
                 try
                 {
-                    //Log.Info("Starting AutoCAD Electrical ...");
-                    //var startParams = Properties.Settings.Default.AcadStartParameters;
-                    //var psi = new ProcessStartInfo(AcadExePath, startParams)
-                    //{
-                    //    WorkingDirectory = @"C:\temp"
-                    //};
-                    //var acadProcess = Process.Start(psi);
-                    //acadProcess.WaitForInputIdle();
+                    
 
                     // TODO - use ROT to make sure using correct AutoCAD instance in case there are more than one (https://adndevblog.typepad.com/autocad/2013/12/accessing-com-applications-from-the-running-object-table.html)
                     try
                     {
-                        AcadApplication = Marshal.GetActiveObject(AcadProgId);
+                        SetAcadEAsLastLaunchedProduct();
+                        Type acType = Type.GetTypeFromProgID(AcadProgId);
+                        AcadApplication = Activator.CreateInstance(acType, true);
                         RegisterMessageFilter();
-                        Console.WriteLine("Get object of type \"" + AcadProgId + "\"");
+                        Console.WriteLine("create object of type \"" + AcadProgId + "\"");
                     }
                     catch
                     {
-
-                        try
-                        {
-                            Type acType = Type.GetTypeFromProgID(AcadProgId);
-                            AcadApplication = Activator.CreateInstance(acType, true);
-                            RegisterMessageFilter();
-                            Console.WriteLine("create object of type \"" + AcadProgId + "\"");
-                        }
-                        catch
-                        {
-                            Log.Error("Cannot create object of type \"" + AcadProgId + "\"");
-                        }
+                        Log.Error("Cannot create object of type \"" + AcadProgId + "\"");
                     }
 
                     Log.Info("Successfully started AutoCAD Electrical!");
@@ -233,6 +216,33 @@ namespace coolOrange.AutoCADElectrical
             {
                 Thread.Sleep(1000);
             }
+        }
+
+        bool SetAcadEAsLastLaunchedProduct()
+        {
+            try
+            {
+                Log.Info($"Checking if AutoCAD Electrical is the last launcehd product ...");
+                var curVer = Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Autodesk\AutoCAD", "CurVer", null);
+                if (curVer != null)
+                {
+                    var keyName = $"HKEY_CURRENT_USER\\SOFTWARE\\Autodesk\\AutoCAD\\{curVer}";
+                    var valueName = "LastLaunchedProduct";
+                    var lastLaunchedProductValue = Registry.GetValue(keyName, valueName, null);
+                    if (lastLaunchedProductValue != null && !lastLaunchedProductValue.ToString().Equals("ACADE"))
+                    {
+                        Registry.SetValue(keyName, valueName, "ACADE");
+                        Log.Info($"Set AutoCAD Electrical as the last launcehd product successfully.");
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Failed to set AutoCAD Electrical as last launched product: {ex.Message}", ex);
+            }
+
+            return false;
         }
 
         #region IMessageFilter

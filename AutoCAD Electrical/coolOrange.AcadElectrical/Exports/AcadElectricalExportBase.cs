@@ -93,7 +93,7 @@ namespace coolOrange.AutoCADElectrical.Exports
             {
                 // prepare for publish command
                 Log.Debug("Setting variable BACKGROUNDPLOT = 0 ...");
-                AcadDocHelper.SendCommandWait(AcadActiveDocument, "_backgroundplot 0 ");
+                AcadDocHelper.SendCommandWait(AcadActiveDocument, "_backgroundplot 1 ");
 
                 Log.Debug("Setting variable FILEDIA = 0 ...");
                 AcadDocHelper.SendCommandWait(AcadActiveDocument, "_filedia 0 ");
