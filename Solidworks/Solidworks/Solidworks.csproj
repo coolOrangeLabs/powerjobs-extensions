@@ -39,29 +39,38 @@
     <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="powerJobs.Common" />
-    <Reference Include="SolidWorks.Interop.sldworks">
-      <HintPath>thirdpty\SolidWorks.Interop.sldworks.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
+    <Reference Include="powerJobs.Common, Version=23.0.4.32721, Culture=neutral, PublicKeyToken=b8042d5e1878fff1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\powerJobs.Common.dll</HintPath>
     </Reference>
-    <Reference Include="SolidWorks.Interop.swcommands">
-      <HintPath>thirdpty\SolidWorks.Interop.swcommands.dll</HintPath>
+    <Reference Include="SolidWorks.Interop.sldworks, Version=24.4.0.86, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>References\SolidWorks.Interop.sldworks.dll</HintPath>
     </Reference>
-    <Reference Include="SolidWorks.Interop.swconst">
-      <HintPath>thirdpty\SolidWorks.Interop.swconst.dll</HintPath>
+    <Reference Include="SolidWorks.Interop.swcommands, Version=24.4.0.86, Culture=neutral, PublicKeyToken=0fda92720ba7919f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>References\SolidWorks.Interop.swcommands.dll</HintPath>
     </Reference>
-    <Reference Include="SolidWorks.Interop.swdocumentmgr">
-      <HintPath>thirdpty\SolidWorks.Interop.swdocumentmgr.dll</HintPath>
+    <Reference Include="SolidWorks.Interop.swconst, Version=24.4.0.86, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>References\SolidWorks.Interop.swconst.dll</HintPath>
     </Reference>
-    <Reference Include="SolidWorks.Interop.swpublished">
-      <HintPath>thirdpty\SolidWorks.Interop.swpublished.dll</HintPath>
+    <Reference Include="SolidWorks.Interop.swdocumentmgr, Version=23.2.1.1, Culture=neutral, PublicKeyToken=e52dfa2d3a1e978a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>References\SolidWorks.Interop.swdocumentmgr.dll</HintPath>
     </Reference>
-    <Reference Include="solidworkstools">
-      <HintPath>thirdpty\solidworkstools.dll</HintPath>
+    <Reference Include="SolidWorks.Interop.swpublished, Version=24.4.0.86, Culture=neutral, PublicKeyToken=89a97bdc5284e6d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>References\SolidWorks.Interop.swpublished.dll</HintPath>
+    </Reference>
+    <Reference Include="solidworkstools, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bd18593873b4686d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\solidworkstools.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
