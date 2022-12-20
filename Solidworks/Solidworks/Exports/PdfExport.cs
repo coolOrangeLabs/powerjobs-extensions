@@ -1,8 +1,8 @@
-﻿using powerJobs.Common.Applications;
+﻿using System.Collections.Generic;
+using powerJobs.Common.Applications;
 using SolidWorks.Interop.sldworks;
-using System.Collections.Generic;
 
-namespace Solidworks.Exports
+namespace coolOrange.Solidworks.Exports
 {
     public class PdfExport : DocumentExportBase
     {

@@ -1,14 +1,12 @@
-﻿using powerJobs.Common.Applications;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using log4net;
-using log4net.Config;
-using System.Reflection;
+using powerJobs.Common.Applications;
 using SolidWorks.Interop.sldworks;
 
-
-namespace Solidworks
+namespace coolOrange.Solidworks
 {
     public class Application : ApplicationBase
     {

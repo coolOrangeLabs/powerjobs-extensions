@@ -1,7 +1,7 @@
-﻿using powerJobs.Common.Applications;
-using Solidworks.Exports;
+﻿using coolOrange.Solidworks.Exports;
+using powerJobs.Common.Applications;
 
-namespace Solidworks
+namespace coolOrange.Solidworks
 {
     public class Exporter : DocumentExporterBase
     {

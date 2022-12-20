@@ -1,9 +1,9 @@
-﻿using powerJobs.Common.Applications;
+﻿using System.Runtime.InteropServices;
+using powerJobs.Common.Applications;
 using SolidWorks.Interop.sldworks;
 using SolidWorks.Interop.swconst;
-using System.Runtime.InteropServices;
 
-namespace Solidworks
+namespace coolOrange.Solidworks
 {
     public class Document : DocumentBase
     {

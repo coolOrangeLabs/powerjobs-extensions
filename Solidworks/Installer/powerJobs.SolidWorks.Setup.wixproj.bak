@@ -10,7 +10,7 @@
     <ProductVersion>3.5</ProductVersion>
     <ProjectGuid>{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>powerJobs.Solidworks.Setup_$(VersionAssembly)_$(Platform)</OutputName>
+    <OutputName>powerJobs.Solidworks.Setup_%24%28VersionAssembly%29_%24%28Platform%29</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>

@@ -1,13 +1,13 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Solidworks")]
-[assembly: AssemblyDescription("Solidworks for powerJobs Processor")]
+[assembly: AssemblyTitle("Solidworks extension for powerJobs Processor")]
+[assembly: AssemblyDescription("Solidworks extension for powerJobs Processor")]
 
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Solidworks")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCompany("COOLORANGE S.r.l.")]
+[assembly: AssemblyProduct("Solidworks extension for powerJobs Processor")]
+[assembly: AssemblyCopyright("Copyright © COOLORANGE S.r.l.  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

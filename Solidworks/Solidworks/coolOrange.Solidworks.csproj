@@ -7,8 +7,8 @@
     <ProjectGuid>{371301B7-989C-43C6-BE90-F798AFE72FA1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solidworks</RootNamespace>
-    <AssemblyName>Solidworks</AssemblyName>
+    <RootNamespace>coolOrange.Solidworks</RootNamespace>
+    <AssemblyName>coolOrange.Solidworks</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
