@@ -16,6 +16,7 @@ THE USAGE OF THIS SAMPLE IS AT YOUR OWN RISK AND **THERE IS NO SUPPORT** RELATED
 This repository contains the code for custom powerJobs application for
 - [Microsoft Office](/MsOffice)
 - [AutoCAD Electrical](/AutoCAD%20Electrical)
+- [SolidWorks](/Solidworks)
  
 It also contains the installer and its source code.
 
