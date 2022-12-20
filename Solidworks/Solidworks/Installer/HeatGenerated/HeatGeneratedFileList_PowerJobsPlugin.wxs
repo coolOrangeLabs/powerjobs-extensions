@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="DIR_POWERJOBS_PLUGIN">
+            <Directory Id="dirF70FE1AA9A125151DC123A70653781CA" Name="Jobs">
+                <Component Id="cmp1D90776F60731FFAA6A7AAB48BCBF1A2" Guid="{03433D37-3B8D-4D27-8A9F-E1F5719EFF66}">
+                    <File Id="fil51E7172E84E03057A70FA8EA35D70E6E" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Jobs\Sample.Solidworks.CreatePDF.ps1" />
+                </Component>
+            </Directory>
+            <Directory Id="dir9E7CD643E9A9A2D795C2453CE2313473" Name="Modules">
+                <Directory Id="dir9BCFE31DA67AB888BD34AF4DA57D9418" Name="Solidworks">
+                    <Component Id="cmp5AB5CAA52A429480127D2EED0BAE0F22" Guid="{FD3C00B7-2A30-46B0-A024-20971CE9B93B}">
+                        <File Id="fil9DD12FD5C06C3A7EDB5B1E302699BC24" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\SolidWorks.Interop.sldworks.dll" />
+                    </Component>
+                    <Component Id="cmp9D74491BEFC75121A47F6B610FDFF2CE" Guid="{A82C8E15-BB95-4153-868B-DA3051BF3A0C}">
+                        <File Id="fil5A625A95FECFF13C5A284703B3C6D198" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\log4net.xml" />
+                    </Component>
+                    <Component Id="cmp514CA4D22A476CCFC40E99E69FEB46EC" Guid="{9FEBE7E5-739B-46E3-AFC6-9BB7DAE8D84F}">
+                        <File Id="fil7BC090150B5F2BA09258F4E27FDBCF24" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\SolidWorks.Interop.swpublished.dll" />
+                    </Component>
+                    <Component Id="cmpCFF657216B4931FB1E32BF5E859A655F" Guid="{58B5866C-AD15-4F8D-95B5-AAEED5F076DD}">
+                        <File Id="fil81DE05F5AB4C2013C3ECCC2111B28772" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\SolidWorks.Interop.swconst.dll" />
+                    </Component>
+                    <Component Id="cmp50B656C90534704FA89E813226F9186A" Guid="{90A85C04-8777-4D87-A83E-623D54A72C49}">
+                        <File Id="filCD599DD7F316B3728BC9813CB8FACE28" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\solidworkstools.dll" />
+                    </Component>
+                    <Component Id="cmpB2BC5CD92E74B701D8262FE904E67279" Guid="{CDD66E68-6D27-44A1-AFB4-2E8DBF1C6643}">
+                        <File Id="filC7D22F6FD1BEA4847FE66310A62EAA3F" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\log4net.dll" />
+                    </Component>
+                    <Component Id="cmp359E545B1EC25883528517BC3AFA3E09" Guid="{01D40315-E5F7-4928-A08D-E10DB841DFFE}">
+                        <File Id="filDA15C0EB1E2816618BFE0FEED9F1991D" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\SolidWorks.Interop.swcommands.dll" />
+                    </Component>
+                    <Component Id="cmpE834064FD57AFBA183EE7E3229EB7C5D" Guid="{E04CA195-0570-46F5-9CD7-29BC1A7C19BA}">
+                        <File Id="filF8534401726CDDBA6FEDB1EE67C94A4C" KeyPath="yes" Source="$(var.HarvestPowerJobsPlugin)\Modules\Solidworks\SolidWorks.Interop.swdocumentmgr.dll" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="HeatGenerated_PowerJobsPlugin">
+            <ComponentRef Id="cmp1D90776F60731FFAA6A7AAB48BCBF1A2" />
+            <ComponentRef Id="cmp5AB5CAA52A429480127D2EED0BAE0F22" />
+            <ComponentRef Id="cmp9D74491BEFC75121A47F6B610FDFF2CE" />
+            <ComponentRef Id="cmp514CA4D22A476CCFC40E99E69FEB46EC" />
+            <ComponentRef Id="cmpCFF657216B4931FB1E32BF5E859A655F" />
+            <ComponentRef Id="cmp50B656C90534704FA89E813226F9186A" />
+            <ComponentRef Id="cmpB2BC5CD92E74B701D8262FE904E67279" />
+            <ComponentRef Id="cmp359E545B1EC25883528517BC3AFA3E09" />
+            <ComponentRef Id="cmpE834064FD57AFBA183EE7E3229EB7C5D" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

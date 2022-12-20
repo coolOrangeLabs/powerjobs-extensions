@@ -31,7 +31,8 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/property:VersionAssembly="$(Major).$(Minor).$(Build.BuildNumber).$(Revision)";RunWixToolsOutofProc=true'
- 
+
+
 - task: CopyFiles@1
   inputs: 
     sourceFolder: '$(Build.SourcesDirectory)'
@@ -41,11 +42,6 @@ steps:
     overWrite: true
     flattenFolders: true
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'Setups'
-
 - task: CopyFiles@2
   inputs: 
     sourceFolder: '$(Build.SourcesDirectory)'
@@ -54,9 +50,17 @@ steps:
     cleanTargetFolder: true
     overWrite: true
     flattenFolders: true
-  
-    
- 
+
+- task: CopyFiles@3
+  inputs: 
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'Solidworks\Installer\bin\$(buildConfiguration)\en-us\*.msi' 
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    cleanTargetFolder: true
+    overWrite: true
+    flattenFolders: true
+
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'

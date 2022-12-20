@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solidworks", "Solidworks\Solidworks.csproj", "{371301B7-989C-43C6-BE90-F798AFE72FA1}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerJobs.SolidWorks.Setup", "Solidworks\Installer\powerJobs.SolidWorks.Setup.wixproj", "{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Debug|x64.Build.0 = Debug|Any CPU
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Release|x64.ActiveCfg = Release|Any CPU
+		{371301B7-989C-43C6-BE90-F798AFE72FA1}.Release|x64.Build.0 = Release|Any CPU
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Debug|x64.ActiveCfg = Debug|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Debug|x64.Build.0 = Debug|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|Any CPU.ActiveCfg = Release|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|x64.ActiveCfg = Release|x64
+		{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0F20CBC-65FC-48FC-B2ED-5EE2DC1F277E}
+	EndGlobalSection
+EndGlobal
