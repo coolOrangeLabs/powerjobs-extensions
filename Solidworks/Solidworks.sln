@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solidworks", "Solidworks\Solidworks.csproj", "{371301B7-989C-43C6-BE90-F798AFE72FA1}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerJobs.SolidWorks.Setup", "Solidworks\Installer\powerJobs.SolidWorks.Setup.wixproj", "{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "powerJobs.SolidWorks.Setup", "Installer\powerJobs.SolidWorks.Setup.wixproj", "{AB4F983C-CC8F-456C-8B58-7A21D126FC7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
